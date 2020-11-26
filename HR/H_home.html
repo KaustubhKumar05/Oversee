@@ -17,18 +17,20 @@
 <div class="container">
     <div class="panel">
         <div class="close">
+            <div class="image">Image</div>
             <i class="fas fa-angle-double-left fa-4x" id="closeBtn"></i>
         </div>
-        <div class="image">Image</div>
         <div class="option">Profile</div>
         <div class="option">Employees</div>
         <div class="option">Projects</div>
         <div class="option">Departments</div>
         <div class="option">Complaints</div>
         <div class="option">Leaves</div>
-        <div class="option signout">Sign out</div>
+        <div class="option signout"><a href="index.html">Sign Out</a></div>
     </div>
     <div class="main">
+
+
         <div class="menu">
             <div class="btn">
                 <i class="fas fa-bars fa-3x" id="menuBtn"></i>
@@ -36,13 +38,17 @@
                 <p id="space"></p>
             </div>
         </div>
+
+
         <div class="search">
             <input type="text" placeholder="Search records">
             <i class="fas fa-search fa-2x"></i>
         </div>
+
+
         <div class="table">
             <table>
-                <tr>
+                <tr id="rowZero">
                     <th>Employee ID</th>
                     <th>Name</th>
                     <th>Phone no.</th>
@@ -51,25 +57,67 @@
                     <th>Department</th>
                     <th>Rating</th>
                 </tr>
-                <tr>
-                    <td>001</td>
-                    <td>Jill</td>
-                    <td>7876354289</td>
-                    <td>E19CSE000@bennett.edu.in</td>
-                    <td>Student</td>
-                    <td>CSE</td>
-                    <td>5</td>
+                <tr id="rowOne">
+                    <td id="rowOneEmpid">001</td>
+                    <td id="rowOneName">Jill</td>
+                    <td id="rowOnePhone">7876354289</td>
+                    <td id="rowOneEmail">E19CSE000@bennett.edu.in</td>
+                    <td id="rowOneDesig">Student</td>
+                    <td id="rowOneDept">CSE</td>
+                    <td id="rowOneRating">5</td>
                 </tr>
-                <tr>
-                    <td>002</td>
-                    <td>Jack</td>
-                    <td>7875394289</td>
-                    <td>E19CSE999@bennett.edu.in</td>
-                    <td>Student</td>
-                    <td>CSE</td>
-                    <td>2</td>
+                <tr id="rowTwo">
+                    <td id="rowTwoEmpid">002</td>
+                    <td id="rowTwoName">Jack</td>
+                    <td id="rowTwoPhone">7875394289</td>
+                    <td id="rowTwoEmail">E19CSE999@bennett.edu.in</td>
+                    <td id="rowTwoDesig">Student</td>
+                    <td id="rowTwoDept">CSE</td>
+                    <td id="rowTwoRating">2</td>
                 </tr>
             </table>
+        </div>
+
+        <div class="modal">
+            <div class="modal-main">
+                <p>Employee details</p>
+                <hr>
+                <div class="empid modal-details">
+                    <p>Employee ID:</p>
+                    <input type="text" name="empid" id="empid">
+                </div>
+
+                <div class="name modal-details">
+                    <p>Full name:</p>
+                    <input type="text" name="name" id="name">
+                </div>
+
+                <div class="phone modal-details">
+                    <p>Phone no:</p>
+                    <input type="number" name="phone" id="phone">
+                </div>
+
+                <div class="email modal-details">
+                    <p>Email:</p>
+                    <input type="text" name="email" id="email">
+                </div>
+
+                <div class="desig modal-details">
+                    <p>Designation:</p>
+                    <input type="text" name="desig" id="desig">
+                </div>
+
+                <div class="dept modal-details">
+                    <p>Department:</p>
+                    <input type="text" name="dept" id="dept">
+                </div>
+
+                <div class="modal-btn">
+                    <button id="closeModal">Close</button>
+                    <button>Update</button>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>
