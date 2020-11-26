@@ -112,6 +112,7 @@ i{
 }
 
 #menuBtn{
+    margin-left: 2vw;
     width: 20vw;
 }
 
@@ -135,11 +136,16 @@ i{
     text-align: center;
     font-size: 6vh;
 }
+/* Page Title */
+.pageTitle{
+    font-size: 5vh;
+    margin-top: 2vh;
+}
 
 /* Search bar  */
 
 .search{
-    margin: 1vh 0 1vh 0;
+    margin: 1vh 0 3vh 0;
     display: flex;
     align-items: center;
     height: 6vh;
@@ -185,6 +191,10 @@ th{
     border: 0.3vw solid rgb(238, 162, 238);
 }
 
+tr:hover{
+    background: rgb(245, 130, 245);
+}
+
 td{
     cursor: pointer;
     border: 0.3vw solid #647dee;
@@ -195,15 +205,19 @@ td{
 .modal{
     position: absolute;
     display: flex;
-    visibility: hidden;
-    background: rgba(255,255,255,0.9);
+    z-index: 90;
+    visibility: collapse;
+    background: rgba(0,0,0,0.8);
     align-items: center;
     justify-content: center;
     height: 100vh;
+    transform: scale(0);
     width: 100vw;
+    transition: all 0.3s ease-in-out;
 }
 
 .modal-view{
+    transform: scale(1);
     visibility: visible;
 }
 
