@@ -4,30 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-        content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
-        integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+          integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="H_home_style.css">
     <title>HR Dashboard</title>
 </head>
 
 <body>
-    <div class="container">
-        <div class="panel">
-            <div class="image">Image</div>
-            <div class="option">Profile</div>
-            <div class="option">Employees</div>
-            <div class="option">Projects</div>
-            <div class="option">Departments</div>
-            <div class="option">Complaints</div>
-            <div class="option">Leaves</div>
-            <div class="option signout">Sign out</div>
+<div class="container">
+    <div class="panel">
+        <div class="close">
+            <i class="fas fa-angle-double-left fa-4x" id="closeBtn"></i>
         </div>
-        <div class="main">
+        <div class="image">Image</div>
+        <div class="option">Profile</div>
+        <div class="option">Employees</div>
+        <div class="option">Projects</div>
+        <div class="option">Departments</div>
+        <div class="option">Complaints</div>
+        <div class="option">Leaves</div>
+        <div class="option signout">Sign out</div>
+    </div>
+    <div class="main">
+        <div class="menu">
+            <i class="fas fa-bars fa-4x" id="menuBtn"></i>
         </div>
     </div>
+</div>
+<script src="H_home_app.js"></script>
 </body>
 
 </html>
