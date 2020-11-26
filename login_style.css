@@ -47,7 +47,7 @@
 }
 
 .fields input:hover{
-    border: 4px solid rgb(238, 162, 238);
+    border-color: rgb(238, 162, 238);
 }
 
 .main button{

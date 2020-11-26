@@ -3,7 +3,9 @@
     margin: 0;
     padding: 0;
     font-family: 'poppins', sans-serif;
+    overflow: hidden;
 }
+
 
 .container{
     height: 100vh;
@@ -14,9 +16,10 @@
 .main{
     position: absolute;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 100vh;
     width: 100%;
-    background: violet;
 }
 
 .panel{
@@ -28,8 +31,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     background-color: #7f53ac;
+    margin-bottom: 2px;
     background-image: linear-gradient(315deg, #7f53ac 0%, #647dee 74%);
     transition: all 0.5s ease-in-out;
 }
@@ -37,12 +41,6 @@
 .view{
     transform: translateX(0);
     visibility: visible;
-}
-
-.menu{
-    position: absolute;
-    margin: 5px;
-    color: purple;
 }
 
 .option{
@@ -57,7 +55,7 @@
     height: 4vw;
     min-height: 6%;
     width: 80%;
-    border: 2px solid white;
+    border: 0.5vh solid white;
     transition: all 300ms ease-in-out;
 }
 
@@ -75,7 +73,7 @@
     justify-content: center;
     width: 15vh;
     border-radius: 50%;
-    margin: 0 0 10% 0;
+    margin: 0 0 5% 0;
 }
 
 .close{
@@ -88,4 +86,98 @@
 
 i{
     cursor: pointer;
+    margin: 5px;
+}
+
+/* Top nav bar */
+
+.menu{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 10vh;
+    background-color: #7f53ac;
+    background-image: linear-gradient(315deg, #7f53ac 0%, #647dee 74%);
+    padding: 5px;
+    border-right: 2px solid white;
+    color:white;
+}
+
+#menuBtn{
+    width: 20vw;
+}
+
+#title{
+    width: 60vw;
+
+}
+
+.btn{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#space{
+    width: 20vw;
+}
+
+.menu p{
+    color: white;
+    text-align: center;
+    font-size: 6vh;
+}
+
+/* Search bar  */
+
+.search{
+    display: flex;
+    align-items: center;
+    height: 6vh;
+    justify-content: flex-end;
+    padding: 2vw;
+    color: #647dee;
+}
+
+.search input{
+    margin: 2px;
+    width: 20vw;
+    font-size: 3vh;
+    min-width: 33vh;
+    text-align: center;
+    height: 5vh;
+    outline: none;
+    border-radius: 2em;
+    border: 0.5vh solid #647dee;
+}
+
+.search i{
+    padding: 0.5vh;
+    border: 0.5vh solid #647dee;
+    border-radius: 50%;
+}
+
+/* Table CSS */
+
+.table{
+    display: flex;
+    width: 90vw;
+    font-size: 1.9vw;
+    padding: 0;
+}
+
+.table table{
+    width: 100%;
+    text-align: center;
+}
+
+.table th{
+    border: 0.3vw solid rgb(238, 162, 238);
+}
+
+.table td{
+    cursor: pointer;
+    border: 0.3vw solid #647dee;
 }
