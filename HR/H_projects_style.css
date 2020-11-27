@@ -3,7 +3,6 @@
     margin: 0;
     padding: 0;
     font-family: 'poppins', sans-serif;
-    overflow: hidden;
 }
 a{
     text-decoration: none;
@@ -186,6 +185,7 @@ table{
     border-collapse: collapse;
     width: 100%;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 th{
@@ -204,7 +204,7 @@ td{
 /* Modal */
 
 .modal{
-    position: absolute;
+    position: fixed;
     display: flex;
     z-index: 90;
     visibility: collapse;
