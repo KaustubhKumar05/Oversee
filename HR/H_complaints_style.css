@@ -183,6 +183,7 @@ i{
 }
 
 table{
+    border-collapse: collapse;
     width: 100%;
     text-align: center;
 }
@@ -266,7 +267,7 @@ td{
     height: 4vh;
     border-radius: 15px;
     outline: none;
-    border: 5px solid rgb(238, 162, 238);
+    border: 3px solid rgb(238, 162, 238);
     min-width: 20vh;
     font-size: 2vh;
     text-align: center;
@@ -308,7 +309,7 @@ td{
 }
 
 textarea{
-    border: 5px solid rgb(238, 162, 238);
+    border: 3px solid rgb(238, 162, 238);
     border-radius: 15px;
     padding: 5px;
     text-align: justify;
