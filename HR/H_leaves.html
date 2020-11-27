@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
           integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="H_dept_style.css">
-    <title>Department Database</title>
+    <link rel="stylesheet" href="H_leaves_style.css">
+    <title>Leave applications</title>
 </head>
 
 <body>
@@ -38,9 +38,7 @@
             <a href="../index.html">Sign Out</a>
         </div>
     </div>
-
     <div class="main">
-
 
         <div class="menu">
             <div class="btn">
@@ -50,78 +48,87 @@
             </div>
         </div>
 
-        <div class="pageTitle">Project Database</div>
+        <div class="pageTitle">Leaves</div>
 
         <div class="search">
             <input type="text" placeholder="Search records">
             <i class="fas fa-search fa-2x"></i>
         </div>
 
-        <div class="add">
-            <button id="add">Add <i class="far fa-plus-square"></i></button>
-        </div>
-
-
         <div class="table">
             <table>
                 <tr id="rowZero">
-                    <th>Department ID</th>
-                    <th>Department Name</th>
-                    <th>HOD ID</th>
-                    <th>Employee count</th>
-                </tr>
+                    <th>Leave ID</th>
+                    <th>Category</th>
+                    <th>From date</th>
+                    <th>To date</th>
+                    <th>Duration</th>
+                    <th>Status</th>
+                    </tr>
                 <tr id="rowOne">
-                    <td id="rowOneDeptid">001</td>
-                    <td id="rowOneName">IT</td>
-                    <td id="rowOneHODID">E19CSE999</td>
-                    <td id="rowOneEmpcount">25</td>
+                    <td id="rowOneLeaveid">001837</td>
+                    <td id="rowOneCat">Paid</td>
+                    <td id="rowOneFrom">09-10-2020</td>
+                    <td id="rowOneTo">10-10-2020</td>
+                    <td id="rowOneDura">2 days</td>
+                    <td id="rowOneStat">Pending</td>
                 </tr>
                 <tr id="rowTwo">
-                    <td id="rowTwoDeptid">001</td>
-                    <td id="rowTwoName">IT</td>
-                    <td id="rowTwoHODID">E19CSE999</td>
-                    <td id="rowTwoEmpcount">25</td>
+                    <td id="rowTwoLeaveid">001837</td>
+                    <td id="rowTwoCat">Paid</td>
+                    <td id="rowTwoFrom">09-10-2020</td>
+                    <td id="rowTwoTo">10-10-2020</td>
+                    <td id="rowTwoDura">2 days</td>
+                    <td id="rowTwoStat">Pending</td>
                 </tr>
             </table>
         </div>
 
         <div class="modal">
             <div class="modal-main">
-                <p>Department details</p>
+                <p>Leave details</p>
                 <hr>
-                <div class="modal-table">
-                    <table>
-                        <tr id="rowZero">
-                            <th>Department ID</th>
-                            <th>Department Name</th>
-                            <th>HOD ID</th>
-                            <th>Employee count</th>
-                        </tr>
-                        <tr id="rowOne">
-                            <td id="rowOneDeptid">001</td>
-                            <td id="rowOneName">IT</td>
-                            <td id="rowOneHODID">E19CSE999</td>
-                            <td id="rowOneEmpcount">25</td>
-                        </tr>
-                        <tr id="rowTwo">
-                            <td id="rowTwoDeptid">001</td>
-                            <td id="rowTwoName">IT</td>
-                            <td id="rowTwoHODID">E19CSE999</td>
-                            <td id="rowTwoEmpcount">25</td>
-                        </tr>
-                    </table>
+                <div class="empid modal-details">
+                    <p>Leave ID:</p>
+                    <input type="number" name="leaveid" id="leaveid">
                 </div>
 
+                <div class="modal-details">
+                    <p>Category:</p>
+                    <input type="text" name="category" id="category">
+                </div>
+
+                <div class="email modal-details">
+                    <p>From:</p>
+                    <input type="text" name="from" id="from">
+                </div>
+
+                <div class="email modal-details">
+                    <p>To:</p>
+                    <input type="text" name="to" id="to">
+                </div>
+
+                <div class="email modal-details">
+                    <p>Duration:</p>
+                    <input type="text" name="dura" id="dura">
+                </div>
+
+                <div class="email modal-details">
+                    <p>Status:</p>
+                    <input type="text" name="status" id="status">
+                </div>
 
                 <div class="modal-btn">
                     <button id="closeModal">Close</button>
-                    <button id="addUpdate">Update</button>
-                    <button id="remove">Remove</button>
+                    <button>Accept</button>
+                    <button>Decline</button>
                 </div>
 
             </div>
         </div>
     </div>
 </div>
-<script src="H_dept_app.js"></script>
+<script src="H_leaves_app.js"></script>
 </body>
+
+</html>
