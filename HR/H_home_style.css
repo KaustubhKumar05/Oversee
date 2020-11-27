@@ -97,6 +97,8 @@ i{
 /* Top nav bar */
 
 .menu{
+    position: sticky;
+    top: 0;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -297,7 +299,6 @@ td{
     display: flex;
     align-items: center;
     font-size: 1.5vw;
-    justify-content: center;
 }
 
 .modal-btn button{
@@ -311,4 +312,8 @@ td{
     font-size: 3vh;
     border: 2px solid #7f53ac;
     cursor: pointer;
+}
+
+#remove{
+    display: none;
 }
