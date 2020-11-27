@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+          integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="H_projects_style.css">
+    <title>Project Database</title>
+</head>
+
+<body>
+<div class="container">
+    <div class="panel">
+        <div class="close">
+            <div class="image">Image</div>
+            <i class="fas fa-angle-double-left fa-4x" id="closeBtn"></i>
+        </div>
+        <div class="option">Profile</div>
+        <div class="option">
+            <a href="H_home.html">Employees</a>
+        </div>
+        <div class="option">Projects</div>
+        <div class="option">Departments</div>
+        <div class="option">Complaints</div>
+        <div class="option">Leaves</div>
+        <div class="option signout"><a href="../index.html">Sign Out</a></div>
+    </div>
+
+
+    <div class="main">
+
+
+        <div class="menu">
+            <div class="btn">
+                <i class="fas fa-bars fa-3x" id="menuBtn"></i>
+                <p id="title">Oversee</p>
+                <p id="space"></p>
+            </div>
+        </div>
+
+        <div class="pageTitle">Project Database</div>
+
+        <div class="search">
+            <input type="text" placeholder="Search records">
+            <i class="fas fa-search fa-2x"></i>
+        </div>
+
+
+        <div class="table">
+            <table>
+                <tr id="rowZero">
+                    <th>Project ID</th>
+                    <th>Project Name</th>
+                    <th>Manager ID</th>
+                    <th>Department</th>
+                    <th>Priority Level</th>
+                    <th>Status</th>
+                </tr>
+                <tr id="rowOne">
+                    <td id="rowOneProjid">001</td>
+                    <td id="rowOneName">Oversee</td>
+                    <td id="rowOneManID">E19CSE999</td>
+                    <td id="rowOneDept">D5</td>
+                    <td id="rowOnePriority">High</td>
+                    <td id="rowOneStatus">In progress</td>
+                </tr>
+                <tr id="rowTwo">
+                    <td id="rowTwoProjid">002</td>
+                    <td id="rowTwoName">SmartSurf</td>
+                    <td id="rowTwoManID">E19CSE000</td>
+                    <td id="rowTwoDept">D10</td>
+                    <td id="rowTwoPriority">High</td>
+                    <td id="rowTwoStatus">Complete</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="modal">
+            <div class="modal-main">
+                <p>Project details</p>
+                <hr>
+                <div class="modal-table">
+                    <table>
+                        <tr id="rowZero">
+                            <th>Project ID</th>
+                            <th>Project Name</th>
+                            <th>Start Date</th>
+                            <th>End date</th>
+                            <th>Estimated duration</th>
+                            <th>Budget</th>
+                            <th>Expenditure</th>
+                        </tr>
+                        <tr id="rowOne">
+                            <td id="rowOneProjid">001</td>
+                            <td id="rowOneName">Oversee</td>
+                            <td id="rowOneStart">10-10-2020</td>
+                            <td id="rowOneEnd">10-02-2021</td>
+                            <td id="rowOneEstimate">4 months</td>
+                            <td id="rowOneBudget">150,000</td>
+                            <td id="rowOneExpen">200,000</td>
+                        </tr>
+                        <tr id="rowTwo">
+                            <td id="rowTwoProjid">002</td>
+                            <td id="rowTwoName">SmartSurf</td>
+                            <td id="rowTwoStart">10-08-2020</td>
+                            <td id="rowTwoEnd">10-10-2020</td>
+                            <td id="rowTwoEstimate">2 months</td>
+                            <td id="rowTwoBudget">350,000</td>
+                            <td id="rowTwoExpen">250,000</td>
+                        </tr>
+                    </table>
+                </div>
+                <p>Team members</p>
+                <hr>
+                <div class="modal-table">
+                    <table>
+                        <tr id="rowZero">
+                            <th>Employee ID</th>
+                            <th>Employee Name</th>
+                        </tr>
+                        <tr id="rowOne">
+                            <td id="rowOneEmpid">E19CSE999</td>
+                            <td id="rowOneName">QWERTY</td>
+                        </tr>
+                        <tr id="rowTwo">
+                            <td id="rowTwoEmpid">E19CSE000</td>
+                            <td id="rowTwoName">ASDF</td>
+                        </tr>
+                    </table>
+                </div>
+
+
+                <div class="modal-btn">
+                    <button id="closeModal">Close</button>
+                    <button>Update</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="H_projects_app.js"></script>
+</body>
+
+</html>
