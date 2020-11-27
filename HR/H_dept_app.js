@@ -24,3 +24,9 @@ close.addEventListener('click', () => {
 add.addEventListener('click', () => {
     addItem()
 })
+
+const addItem = () => {
+    varBtn.innerHTML = "Add";
+    remove.style.display = "none";
+    modal.classList.add("modal-view")
+}

@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
           integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="H_complaints_style.css">
-    <title>Received complaints</title>
+    <link rel="stylesheet" href="H_dept_style.css">
+    <title>Department Database</title>
 </head>
 
 <body>
@@ -36,7 +36,9 @@
             <a href="../index.html">Sign Out</a>
         </div>
     </div>
+
     <div class="main">
+
 
         <div class="menu">
             <div class="btn">
@@ -46,84 +48,78 @@
             </div>
         </div>
 
-        <div class="pageTitle">Complaints</div>
+        <div class="pageTitle">Project Database</div>
 
         <div class="search">
             <input type="text" placeholder="Search records">
             <i class="fas fa-search fa-2x"></i>
         </div>
 
+        <div class="add">
+            <button id="add">Add <i class="far fa-plus-square"></i></button>
+        </div>
+
+
         <div class="table">
             <table>
                 <tr id="rowZero">
-                    <th>Complaint ID</th>
-                    <th>Category</th>
-                    <th>Subject</th>
-                    <th>Date</th>
-                    <th>Time</th>
+                    <th>Department ID</th>
+                    <th>Department Name</th>
+                    <th>HOD ID</th>
+                    <th>Employee count</th>
                 </tr>
                 <tr id="rowOne">
-                    <td id="rowOneCompid">001837</td>
-                    <td id="rowOneCat">IT</td>
-                    <td id="rowOneSub">Slow internet</td>
-                    <td id="rowOneDate">10-10-2020</td>
-                    <td id="rowOneTime">23:40</td>
+                    <td id="rowOneDeptid">001</td>
+                    <td id="rowOneName">IT</td>
+                    <td id="rowOneHODID">E19CSE999</td>
+                    <td id="rowOneEmpcount">25</td>
                 </tr>
                 <tr id="rowTwo">
-                    <td id="rowTwoCompid">001297</td>
-                    <td id="rowTwoCat">Sanitation</td>
-                    <td id="rowTwoSub">Dirty floor</td>
-                    <td id="rowTwoDate">08-10-2020</td>
-                    <td id="rowTwoTime">13:40</td>
+                    <td id="rowTwoDeptid">001</td>
+                    <td id="rowTwoName">IT</td>
+                    <td id="rowTwoHODID">E19CSE999</td>
+                    <td id="rowTwoEmpcount">25</td>
                 </tr>
             </table>
         </div>
 
         <div class="modal">
             <div class="modal-main">
-                <p>Complaint details</p>
+                <p>Department details</p>
                 <hr>
-                <div class="empid modal-details">
-                    <p>Employee ID:</p>
-                    <input type="number" name="empid" id="empid">
+                <div class="modal-table">
+                    <table>
+                        <tr id="rowZero">
+                            <th>Department ID</th>
+                            <th>Department Name</th>
+                            <th>HOD ID</th>
+                            <th>Employee count</th>
+                        </tr>
+                        <tr id="rowOne">
+                            <td id="rowOneDeptid">001</td>
+                            <td id="rowOneName">IT</td>
+                            <td id="rowOneHODID">E19CSE999</td>
+                            <td id="rowOneEmpcount">25</td>
+                        </tr>
+                        <tr id="rowTwo">
+                            <td id="rowTwoDeptid">001</td>
+                            <td id="rowTwoName">IT</td>
+                            <td id="rowTwoHODID">E19CSE999</td>
+                            <td id="rowTwoEmpcount">25</td>
+                        </tr>
+                    </table>
                 </div>
 
-                <div class="modal-details">
-                    <p>Date Time:</p>
-                    <input type="text" name="datetime" id="datetime">
-                </div>
-
-                <div class="empid modal-details">
-                    <p>Complaint ID:</p>
-                    <input type="number" name="compid" id="compid">
-                </div>
-
-                <div class="phone modal-details">
-                    <p>Category:</p>
-                    <input type="text" name="category" id="category">
-                </div>
-
-                <div class="email modal-details">
-                    <p>Subject:</p>
-                    <input type="text" name="subject" id="subject">
-                </div>
-
-                <div class="desig modal-details">
-                    <p>Complaint:</p>
-                    <textarea readonly id="comp" name="comp" rows="4" cols="44">The main body of the complaint should be displayed here.</textarea>
-                </div>
 
                 <div class="modal-btn">
                     <button id="closeModal">Close</button>
-                    <button id ="addUpdate">Update</button>
-                    <button id ="remove">Remove</button>
+                    <button id="addUpdate">Update</button>
+                    <button id="remove">Remove</button>
                 </div>
 
             </div>
         </div>
     </div>
 </div>
-<script src="H_complaints_app.js"></script>
+<script src="H_dept_app.js"></script>
 </body>
-
-</html>

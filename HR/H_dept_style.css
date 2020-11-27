@@ -210,10 +210,10 @@ i{
 }
 
 table{
-    margin-bottom: 20px;
     border-collapse: collapse;
     width: 100%;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 th{
@@ -268,7 +268,7 @@ td{
 
 .modal-main p{
     margin: 1vh;
-    font-size: 3vh;
+    font-size: 4vh;
 }
 
 .modal hr{
@@ -284,7 +284,7 @@ td{
     text-overflow: ellipsis;
     width: 80%;
     min-width: 30vh;
-    font-size: 1vh;
+    font-size: 3vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -336,10 +336,6 @@ td{
     padding: 2vh;
 }
 
-textarea{
-    border: 3px solid rgb(238, 162, 238);
-    border-radius: 15px;
-    padding: 5px;
-    text-align: justify;
-    outline: none;
+#remove{
+    display: none;
 }
