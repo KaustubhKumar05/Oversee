@@ -232,6 +232,7 @@ td{
     position: fixed;
     display: flex;
     z-index: 90;
+    overflow-y: auto;
     visibility: collapse;
     background: rgba(0,0,0,0.8);
     align-items: center;
@@ -248,7 +249,7 @@ td{
 }
 
 .modal-main{
-    height: 80%;
+    height: 90%;
     background: white;
     border: 0.3vw solid #647dee;
     border-radius: 10px;
@@ -259,7 +260,7 @@ td{
     text-overflow: ellipsis;
     justify-content: center;
     align-items: center;
-    font-size: 5vh;
+    font-size: 3vh;
     flex-direction: column;
 }
 
@@ -267,12 +268,11 @@ td{
     border-top: 0.5vh solid  #647dee;
     border-bottom: none;
     width: 33%;
-    margin: 1vh;
+    margin-bottom: 1vh;
 }
 
 .modal-details{
     margin: 1vh;
-    padding: 1vh;
     text-overflow: ellipsis;
     width: 80%;
     min-width: 30vh;
@@ -310,6 +310,12 @@ td{
     font-size: 3vh;
     border: 2px solid #7f53ac;
     cursor: pointer;
+}
+.scroll-area{
+    overflow-y: auto;
+    width: 80%;
+    min-width: 30vh;
+    font-size: 3vh;
 }
 
 #remove{

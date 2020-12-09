@@ -20,8 +20,8 @@
     </div>
     <div class="main">
         <div class="fields">
-            <input type="text" placeholder="Login ID">
-            <input type="password" placeholder="Password">
+            <input type="text" placeholder="Login ID" required>
+            <input type="password" placeholder="Password" required>
         </div>
 
         <div class="choice">
@@ -30,11 +30,12 @@
             <input type="radio" id="User" name="type" value="User">
             <label for="User">User</label><br>
         </div>
-        <a href="HR/H_home.html">
-            <button>Log In</button>
+        <a id="redirectTo" href="">
+            <button id="loginBtn">Log In</button>
         </a>
     </div>
 </div>
+<script src="login_app.js"></script>
 </body>
 
 </html>
