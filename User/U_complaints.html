@@ -36,9 +36,143 @@
     <div class="main">
         <div class="menu">
             <div class="btn">
-                <i class="fas fa-bars fa-3x" id="menuBtn"></i>
+                <i class="fas fa-bars fa-4x" id="menuBtn"></i>
                 <p id="title">Oversee</p>
                 <p id="space"></p>
+            </div>
+        </div>
+        <div class="pageTitle">New complaint</div>
+        <div class="new">
+            <label for="cat">Category:</label>
+            <select id="cat" required>
+                <option value="">Select</option>
+                <option value="Sanitation">Sanitation</option>
+                <option value="Infrastructure">Infrastructure</option>
+                <option value="Misconduct">Misconduct</option>
+                <option value="Other">Other</option>
+            </select>
+            <br>
+            <label for="sub">Subject:</label>
+            <input type="text" id="sub" required>
+            <br>
+            <label for="body">Body:</label>
+            <br>
+            <textarea id="body" required></textarea>
+            <br>
+            <button type="submit" id="newBtn">Submit</button>
+        </div>
+        <div class="existing">
+            <div class="pageTitle">Registered complaints</div>
+            <div class="table" id="table">
+                <table>
+                    <tr id="rowZero">
+                        <th>Complaint ID</th>
+                        <th>Category</th>
+                        <th>Subject</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                    </tr>
+                    <tr id="comp-1-">
+                        <td id="comp-1-Compid">001837</td>
+                        <td id="comp-1-Cat">Infrastructure</td>
+                        <td id="comp-1-Sub">Slow internet</td>
+                        <td id="comp-1-Date">10-10-2020</td>
+                        <td id="comp-1-Time">23:40</td>
+                        <td id="comp-1-Status">Pending</td>
+                    </tr><tr id="comp-1-">
+                        <td id="comp-1-Compid">001837</td>
+                        <td id="comp-1-Cat">Infrastructure</td>
+                        <td id="comp-1-Sub">Slow internet</td>
+                        <td id="comp-1-Date">10-10-2020</td>
+                        <td id="comp-1-Time">23:40</td>
+                        <td id="comp-1-Status">Pending</td>
+                    </tr><tr id="comp-1-">
+                        <td id="comp-1-Compid">001837</td>
+                        <td id="comp-1-Cat">Infrastructure</td>
+                        <td id="comp-1-Sub">Slow internet</td>
+                        <td id="comp-1-Date">10-10-2020</td>
+                        <td id="comp-1-Time">23:40</td>
+                        <td id="comp-1-Status">Pending</td>
+                    </tr><tr id="comp-1-">
+                        <td id="comp-1-Compid">001837</td>
+                        <td id="comp-1-Cat">Infrastructure</td>
+                        <td id="comp-1-Sub">Slow internet</td>
+                        <td id="comp-1-Date">10-10-2020</td>
+                        <td id="comp-1-Time">23:40</td>
+                        <td id="comp-1-Status">Pending</td>
+                    </tr><tr id="comp-1-">
+                        <td id="comp-1-Compid">001837</td>
+                        <td id="comp-1-Cat">Infrastructure</td>
+                        <td id="comp-1-Sub">Slow internet</td>
+                        <td id="comp-1-Date">10-10-2020</td>
+                        <td id="comp-1-Time">23:40</td>
+                        <td id="comp-1-Status">Pending</td>
+                    </tr><tr id="comp-1-">
+                        <td id="comp-1-Compid">001837</td>
+                        <td id="comp-1-Cat">Infrastructure</td>
+                        <td id="comp-1-Sub">Slow internet</td>
+                        <td id="comp-1-Date">10-10-2020</td>
+                        <td id="comp-1-Time">23:40</td>
+                        <td id="comp-1-Status">Pending</td>
+                    </tr><tr id="comp-1-">
+                        <td id="comp-1-Compid">001837</td>
+                        <td id="comp-1-Cat">Infrastructure</td>
+                        <td id="comp-1-Sub">Slow internet</td>
+                        <td id="comp-1-Date">10-10-2020</td>
+                        <td id="comp-1-Time">23:40</td>
+                        <td id="comp-1-Status">Pending</td>
+                    </tr><tr id="comp-1-">
+                        <td id="comp-1-Compid">001837</td>
+                        <td id="comp-1-Cat">Infrastructure</td>
+                        <td id="comp-1-Sub">Slow internet</td>
+                        <td id="comp-1-Date">10-10-2020</td>
+                        <td id="comp-1-Time">23:40</td>
+                        <td id="comp-1-Status">Pending</td>
+                    </tr><tr id="comp-1-">
+                        <td id="comp-1-Compid">001837</td>
+                        <td id="comp-1-Cat">Infrastructure</td>
+                        <td id="comp-1-Sub">Slow internet</td>
+                        <td id="comp-1-Date">10-10-2020</td>
+                        <td id="comp-1-Time">23:40</td>
+                        <td id="comp-1-Status">Pending</td>
+                    </tr><tr id="comp-1-">
+                        <td id="comp-1-Compid">001837</td>
+                        <td id="comp-1-Cat">Infrastructure</td>
+                        <td id="comp-1-Sub">Slow internet</td>
+                        <td id="comp-1-Date">10-10-2020</td>
+                        <td id="comp-1-Time">23:40</td>
+                        <td id="comp-1-Status">Pending</td>
+                    </tr><tr id="comp-1-">
+                        <td id="comp-1-Compid">001837</td>
+                        <td id="comp-1-Cat">Infrastructure</td>
+                        <td id="comp-1-Sub">Slow internet</td>
+                        <td id="comp-1-Date">10-10-2020</td>
+                        <td id="comp-1-Time">23:40</td>
+                        <td id="comp-1-Status">Pending</td>
+                    </tr><tr id="comp-1-">
+                        <td id="comp-1-Compid">001837</td>
+                        <td id="comp-1-Cat">Infrastructure</td>
+                        <td id="comp-1-Sub">Slow internet</td>
+                        <td id="comp-1-Date">10-10-2020</td>
+                        <td id="comp-1-Time">23:40</td>
+                        <td id="comp-1-Status">Pending</td>
+                    </tr><tr id="comp-1-">
+                        <td id="comp-1-Compid">001837</td>
+                        <td id="comp-1-Cat">Infrastructure</td>
+                        <td id="comp-1-Sub">Slow internet</td>
+                        <td id="comp-1-Date">10-10-2020</td>
+                        <td id="comp-1-Time">23:40</td>
+                        <td id="comp-1-Status">Pending</td>
+                    </tr><tr id="comp-1-">
+                        <td id="comp-1-Compid">001837</td>
+                        <td id="comp-1-Cat">Infrastructure</td>
+                        <td id="comp-1-Sub">Slow internet</td>
+                        <td id="comp-1-Date">10-10-2020</td>
+                        <td id="comp-1-Time">23:40</td>
+                        <td id="comp-1-Status">Pending</td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
