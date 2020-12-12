@@ -7,7 +7,7 @@ document.addEventListener('click', (e) => {
         panel.classList.remove('view');
     else if (e.target.id == 'menuBtn')
         panel.classList.add('view');
-    else if (e.target.id.toString().includes("row")) {
+    else if (e.target.id.toString().includes("lea-")) {
         modal.classList.add("modal-view");
     }
 })
