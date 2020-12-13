@@ -27,7 +27,7 @@
         $myusername = mysqli_real_escape_string($conn,$_POST['loginId']);
         $mypassword = mysqli_real_escape_string($conn,$_POST['password']); 
         $_SESSION['login_user'] = $myusername;
-        $answer = $_POST['name'];  
+        $answer = $_POST['type'];  
         $sql = "SELECT EmployeeID FROM employee where emp='$answer' and employeeID=(SELECT EmployeeID FROM credentials WHERE LoginID = '$myusername' and Password = '$mypassword');";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -80,7 +80,6 @@
             </form>
         </div>
     </div>
-    <!-- <script src="login_app.js"></script> -->
 </body>
 
 </html>
