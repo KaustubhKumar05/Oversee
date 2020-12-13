@@ -138,14 +138,14 @@ i{
     margin: 5px;
 }
 
-.new{
-    width: 80%;
-    padding: 10px;
-    height: 40%;
+.new{;
+    width: 40%;
+    padding: 20px;
+    height: 35%;
     font-size: 20px;
     margin: 20px 5px;
     border-radius: 10px;
-    border: 3px solid #ff5ff2;
+    border: 5px solid #ff5ff2;
 }
 
 .existing{
@@ -161,7 +161,7 @@ i{
     width: 100px;
     text-align: center;
     font-size: 15px;
-    margin: auto;
+    margin: auto auto 10px auto;
 }
 
 textarea{
@@ -199,4 +199,8 @@ tr:hover{
 td{
     cursor: pointer;
     border: 5px solid #647dee;
+}
+
+.duration{
+    display: flex;
 }

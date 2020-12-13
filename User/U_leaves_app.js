@@ -1,53 +1,56 @@
 const panel = document.getElementsByClassName("panel")[0],
     cat = document.getElementById("cat"),
     table =  document.getElementById('table'),
-    sub = document.getElementById("sub"),
+    reason = document.getElementById("reason"),
+    from = document.getElementById("from"),
+    to = document.getElementById("to"),
     newBtn = document.getElementById("newBtn");
 
 let count = 1;
 document.addEventListener('click', (e)=>{
     if(e.target.id == 'closeBtn')
         panel.classList.remove('view');
-    else if(e.target.id == 'menuBtn')
-        panel.classList.add('view');
+    else {
+        if (e.target.id == 'menuBtn')
+            panel.classList.add('view');
+    }
 })
 
 newBtn.addEventListener("click", () =>{
 
-    const newRow = document.createElement("tr");
-    newRow.id=`comp-${count}-`;
+    const newRow = table.insertRow(1);
+    newRow.id = `leave-${count}-`;
 
-    const id = document.createElement("td");
+    const id = newRow.insertCell(0),
+        category = newRow.insertCell(1),
+        fromDate = newRow.insertCell(2),
+        toDate = newRow.insertCell(3),
+        duration = newRow.insertCell(4),
+        status = newRow.insertCell(5);
+
     id.innerText = (count).toString();
-    newRow.id = `comp-${count}-Compid`;
+    newRow.id = `leave-${count}-Leaveid`;
 
-    const category = document.createElement("td");
     category.innerText = cat.value;
-    category.id = `comp-${count}-Cat`;
+    category.id = `leave-${count}-Cat`;
 
-    const subject = document.createElement("td");
-    subject.innerText = sub.value.toString();
-    subject.id= `comp-${count}-Sub`;
+    fromDate.innerText = formatDate(from.value.toString());
+    fromDate.id= `leave-${count}-From`;
 
-    let d = new Date();
-    const date = document.createElement("td");
-    date.innerText = d.getDate().toString() +'-'+ (d.getMonth() + 1).toString() +'-'+ d.getFullYear().toString();
-    cat.id = `comp-${count}-Date`;
+    toDate.innerText = formatDate(to.value.toString());
+    toDate.id= `leave-${count}-Tp`;
 
-    const time = document.createElement("td");
-    time.innerText = d.getHours().toString() +':'+ d.getMinutes().toString();
-    cat.id = `comp-${count}-Time`;
+    duration.innerHTML = getDuration(from.value, to.value).toString();
+    duration.id = `comp-${count}-Duration`;
 
-    const status = document.createElement("td");
     status.innerText = "Pending";
-    cat.id = `comp-${count}-Status`;
-
-    newRow.appendChild(id);
-    newRow.appendChild(category);
-    newRow.appendChild(date);
-    newRow.appendChild(time);
-    newRow.appendChild(status);
-    table.appendChild(newRow)
+    status.id = `comp-${count}-Status`;
     count++;
-    console.log(newRow);
 })
+
+const getDuration = (from, to) => Math.ceil((new Date(to) - new Date(from)) / (1000 * 60 * 60 * 24));
+
+const formatDate = to => {
+    let val = to.split('-');
+    return val.reverse().join('-');
+}

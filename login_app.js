@@ -6,17 +6,16 @@ const hr = document.getElementById("HR"),
     loginBtn = document.getElementById("loginBtn");
 
 loginBtn.addEventListener('click', () => {
-    if(hr.checked && authenticate(idField.value.toString(), pwdField.value.toString()))
+    if(hr.checked && authenticate(idField.value.toString(), pwdField.value.toString(), "HR"))
         redirectTo.href = "HR/H_home.html";
 
 
-    else if(user.checked && authenticate(idField.value.toString(), pwdField.value.toString()))
+    else if(user.checked && authenticate(idField.value.toString(), pwdField.value.toString(), "User"))
         redirectTo.href = "User/U_home.html";
 
 })
 
-
-const authenticate = (id, pwd) => {
+const authenticate = (id, pwd, type) => {
     console.log(id, pwd);
     return true;
 }
