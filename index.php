@@ -10,9 +10,17 @@
           integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="login_style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Log In</title>
 </head>
+<?php include 'php_script/dbconnect.php';
+ if ($conn){
+     echo "connected to database";
+ }
+ else
+ echo "Error";
 
+?>
 <body>
 <div class="container">
     <div class="title">
