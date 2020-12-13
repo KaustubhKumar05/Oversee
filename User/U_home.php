@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +15,12 @@
     <link rel="stylesheet" href="U_home_style.css">
     <title>Profile</title>
 </head>
+<?php
+    include "../php_script/dbconnect.php";
+    $que = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * from employee where EmployeeID='".$_SESSION["empID"]."';"));
 
+
+?>
 <body>
 <div class="container">
     <div class="panel">
@@ -20,19 +28,19 @@
             <i class="fas fa-angle-double-left fa-4x" id="closeBtn"></i>
         </div>
         <div class="option">
-            <a href="U_home.html">Profile</a>
+            <a href="U_home.php">Profile</a>
         </div>
         <div class="option">Projects</div>
         <div class="option">
-            <a href="U_complaints.html">Complaints</a>
+            <a href="U_complaints.php">Complaints</a>
         </div>
         <div class="option">
-            <a href="U_leaves.html">Leaves</a>
+            <a href="U_leaves.php">Leaves</a>
         </div>
         <div class="option signout">
-            <a href="../index.html">Sign Out</a>
+            <a href="../index.php">Sign Out</a>
         </div>
-    </div>
+    </div> 
     <div class="main">
         <div class="menu">
             <div class="btn">
@@ -45,17 +53,20 @@
         <div class="det">
             <div class="item">
                 <p>Name:</p>
-                <input type="text" id="name" name="">
+                <?php echo             "<input type='text' id='name' value = '" . $que["First_name"] . "'>";   ?>
+                
             </div>
 
             <div class="item">
                 <p>Employee ID:</p>
-                <input type="text" id="empid" name="">
+                <?php echo             "<input type='text' id='empid' value = '" . $que["EmployeeID"] . "'>";   ?>
+                
             </div>
 
             <div class="item">
                 <p>Mobile no:</p>
                 <input type="text" id="mobileno" name="">
+                
             </div>
 
             <div class="item">
@@ -110,7 +121,7 @@
 
             <div class="item">
                 <p>Password:</p>
-                <input type="text" id="password" name="">
+                <input type="text" id="password" name="" value=''>
             </div>
 
         </div>

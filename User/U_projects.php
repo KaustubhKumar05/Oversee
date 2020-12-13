@@ -20,17 +20,17 @@
             <i class="fas fa-angle-double-left fa-4x" id="closeBtn"></i>
         </div>
         <div class="option">
-            <a href="U_home.html">Profile</a>
+            <a href="U_home.php">Profile</a>
         </div>
         <div class="option">Projects</div>
         <div class="option">
-            <a href="U_complaints.html">Complaints</a>
+            <a href="U_complaints.php">Complaints</a>
         </div>
         <div class="option">
-            <a href="U_leaves.html">Leaves</a>
+            <a href="U_leaves.php">Leaves</a>
         </div>
         <div class="option signout">
-            <a href="../index.html">Sign Out</a>
+            <a href="../index.php">Sign Out</a>
         </div>
     </div>
     <div class="main">

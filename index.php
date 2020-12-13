@@ -27,11 +27,13 @@
         $myusername = mysqli_real_escape_string($conn,$_POST['loginId']);
         $mypassword = mysqli_real_escape_string($conn,$_POST['password']); 
         $_SESSION['login_user'] = $myusername;
+        
         $answer = $_POST['type'];  
         $sql = "SELECT EmployeeID FROM employee where emp='$answer' and employeeID=(SELECT EmployeeID FROM credentials WHERE LoginID = '$myusername' and Password = '$mypassword');";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-        $active = $row['active'];
+        $_SESSION['empID']=$row['EmployeeID'];
+        
         $count = mysqli_num_rows($result);
         
         // If result matched $myusername and $mypassword, table row must be 1 row
@@ -42,9 +44,9 @@
            
            
             if ($answer == "HR")
-                 header("location: HR\H_home.html");
+                 header("location: HR\H_home.php");
            else 
-                header("location: User\U_home.html"); 
+                header("location: User\U_home.php"); 
             
         }else {
            $error = "Your Login Name or Password is invalid";

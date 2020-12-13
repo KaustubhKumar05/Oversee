@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
           integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="U_complaints_style.css">
-    <title>Complaints</title>
+    <link rel="stylesheet" href="U_leaves_style.css">
+    <title>Leaves</title>
 </head>
 
 <body>
@@ -20,17 +20,17 @@
             <i class="fas fa-angle-double-left fa-4x" id="closeBtn"></i>
         </div>
         <div class="option">
-            <a href="U_home.html">Profile</a>
+            <a href="U_home.php">Profile</a>
         </div>
         <div class="option">Projects</div>
         <div class="option">
-            <a href="U_complaints.html">Complaints</a>
+            <a href="U_complaints.php">Complaints</a>
         </div>
         <div class="option">
-            <a href="U_leaves.html">Leaves</a>
+            <a href="U_leaves.php">Leaves</a>
         </div>
         <div class="option signout">
-            <a href="../index.html">Sign Out</a>
+            <a href="../index.php">Sign Out</a>
         </div>
     </div>
     <div class="main">
@@ -41,52 +41,58 @@
                 <p id="space"></p>
             </div>
         </div>
-        <div class="pageTitle">New complaint</div>
+        <div class="pageTitle">Apply for leave</div>
         <div class="new">
             <label for="cat">Category:</label>
             <select id="cat" required>
                 <option value="">Select</option>
-                <option value="Sanitation">Sanitation</option>
-                <option value="Infrastructure">Infrastructure</option>
-                <option value="Misconduct">Misconduct</option>
-                <option value="Other">Other</option>
+                <option value="Paid">Paid</option>
+                <option value="Unpaid">Unpaid</option>
+                <option value="Maternity">Maternity</option>
+                <option value="Paternity">Paternity</option>
+                <option value="Compensatory">Compensatory</option>
             </select>
-            <br>
-            <label for="sub">Subject:</label>
-            <input type="text" id="sub" required>
-            <br>
-            <label for="body">Body:</label>
-            <br>
-            <textarea id="body" required></textarea>
+            <br><br>
+            <label for="reason">Reason:</label>
+            <input type="text" id="reason" required>
+            <br><br>
+            <div class="duration">
+                <label for="from">From:</label>
+                <input type="date" id="from">
+                &nbsp; &nbsp; &nbsp;
+                <label for="to">To:</label>
+                <input type="date" id="to">
+            </div>
+
             <br>
             <button type="submit" id="newBtn">Submit</button>
         </div>
         <div class="existing">
-            <div class="pageTitle">Registered complaints</div>
+            <div class="pageTitle">Applied leaves</div>
             <div class="table">
                 <table id="table">
                     <tr id="rowZero">
-                        <th>Complaint ID</th>
+                        <th>Leave ID</th>
                         <th>Category</th>
-                        <th>Subject</th>
-                        <th>Date</th>
-                        <th>Time</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Duration</th>
                         <th>Status</th>
                     </tr>
-                    <tr id="comp-1-">
-                        <td id="comp-1-Compid">001837</td>
-                        <td id="comp-1-Cat">Infrastructure</td>
-                        <td id="comp-1-Sub">Slow internet</td>
-                        <td id="comp-1-Date">10-10-2020</td>
-                        <td id="comp-1-Time">23:40</td>
-                        <td id="comp-1-Status">Pending</td>
+                    <tr id="leave-1-">
+                        <td id="leave-1-Leaveid">001837</td>
+                        <td id="leave-1-Cat">Paid</td>
+                        <td id="leave-1-From">05-10-2020</td>
+                        <td id="leave-1-To">10-10-2020</td>
+                        <td id="leave-1-Duration">2</td>
+                        <td id="leave-1-Status">Pending</td>
                     </tr>
                 </table>
             </div>
         </div>
     </div>
 </div>
-<script src="U_complaint_app.js"></script>
+<script src="U_leaves_app.js"></script>
 </body>
 
 </html>
