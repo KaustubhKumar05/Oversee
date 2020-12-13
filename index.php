@@ -1,5 +1,12 @@
 <?php
     session_start();
+    if(isset($_SESSION['type']))
+    {   
+        if($_SESSION['type']=="HR")
+            header('location: HR\H_home.php');
+        else
+            header('location: User\U_home.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +35,9 @@
         $mypassword = mysqli_real_escape_string($conn,$_POST['password']); 
         $_SESSION['login_user'] = $myusername;
         
-        $answer = $_POST['type'];  
+        $answer = $_POST['type']; 
+        
+        $_SESSION['type']=$answer;
         $sql = "SELECT EmployeeID FROM employee where emp='$answer' and employeeID=(SELECT EmployeeID FROM credentials WHERE LoginID = '$myusername' and Password = '$mypassword');";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_array($result,MYSQLI_ASSOC);

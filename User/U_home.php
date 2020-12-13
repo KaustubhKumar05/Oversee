@@ -1,5 +1,8 @@
 <?php 
 session_start();
+if(!isset($_SESSION['login_user']))
+    header('Location: /');
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +20,7 @@ session_start();
 </head>
 <?php
     include "../php_script/dbconnect.php";
-    $que = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * from employee where EmployeeID='".$_SESSION["empID"]."';"));
+    $que = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * from Profile where EmployeeID='".$_SESSION["empID"]."';"));
 
 
 ?>
@@ -37,8 +40,8 @@ session_start();
         <div class="option">
             <a href="U_leaves.php">Leaves</a>
         </div>
-        <div class="option signout">
-            <a href="../index.php">Sign Out</a>
+        <div class="option signout" id="SIGNOUT" >
+            <a href="../php_script/signout.php"> Sign Out</a>
         </div>
     </div> 
     <div class="main">
@@ -53,7 +56,7 @@ session_start();
         <div class="det">
             <div class="item">
                 <p>Name:</p>
-                <?php echo             "<input type='text' id='name' value = '" . $que["First_name"] . "'>";   ?>
+                <?php echo             "<input type='text' id='name' value = '" . $que["First_name"] ." ".$que["Middle_name"]." ".$que["Last_name"]." ' readonly>";   ?>
                 
             </div>
 
