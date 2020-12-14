@@ -20,7 +20,7 @@ if(!isset($_SESSION['login_user']))
 </head>
 <?php
     include "../php_script/dbconnect.php";
-    $que = mysqli_fetch_all(mysqli_query($conn,"SELECT * from leaves where EmployeeID='".$_SESSION["empID"]."';"),MYSQLI_ASSOC);
+    $que = mysqli_fetch_all(mysqli_query($conn,"SELECT *, DATEDIFF(Leave_end,Leave_from) as duration from leaves where EmployeeID='".$_SESSION["empID"]."';"),MYSQLI_ASSOC);
     if(isset($_POST['submit'])){
     
         $cat=$_POST['cat']; 
@@ -119,7 +119,7 @@ if(!isset($_SESSION['login_user']))
                                 <td id=\"leave-".$id."-Cat\">".$row["Leave_type"]."</td>
                                 <td id=\"leave-".$id."-From\">".$row["Leave_from"]."</td>
                                 <td id=\"leave-".$id."-To\">".$row["Leave_end"]."</td>
-                                <td id=\"leave-".$id."-Duration\">".$row["Leave_end"]."</td>
+                                <td id=\"leave-".$id."-Duration\">".$row["duration"]."</td>
                                 <td id=\"leave-".$id."-Status\">".$row["Status"]."</td>
                             </tr>";
 

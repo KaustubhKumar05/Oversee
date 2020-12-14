@@ -56,7 +56,7 @@ if(!isset($_SESSION['login_user']))
             </div>
         </div>
 
-        <div class="pageTitle">Project Database</div>
+        <div class="pageTitle">Department Database</div>
 
         <div class="add">
             <button id="add">Add <i class="far fa-plus-square"></i></button>
