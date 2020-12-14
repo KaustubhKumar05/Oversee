@@ -1,7 +1,7 @@
 const panel = document.getElementsByClassName("panel")[0];
 const modal = document.getElementsByClassName("modal")[0];
 const close = document.getElementById("closeModal");
-const add = document.getElementById("add");
+var add = document.getElementById("add");
 const varBtn = document.getElementById("addUpdate");
 const remove = document.getElementById("remove");
 
