@@ -2,7 +2,6 @@
 session_start();
 if(!isset($_SESSION['login_user']))
     header('Location: /');
-    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,9 +19,11 @@ if(!isset($_SESSION['login_user']))
 </head>
 <?php
     include "../php_script/dbconnect.php";
-    $que = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * from Projects where Manager='".$_SESSION["empID"]."';"));
-
-
+    $que = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * from Projects where EmployeeID='".$_SESSION["empID"]."';"));
+    date_default_timezone_set("Asia/Kolkata");
+    $date=date("Y/m/d");
+    $time=date("h:i:sa");
+    
 ?>
 
 <body>
@@ -67,44 +68,51 @@ if(!isset($_SESSION['login_user']))
                     <div class="parallel">
                         <div class="subpart">
                             Project ID:
-                            <input type="text">
+                            <?php echo             "<input type='text' value='" . $_SESSION["empID"] . "' readonly>";   ?>
                         </div>
                         <div class="subpart">
                             Status:
-                            <input type="text">
+                            <?php echo             "<input type='text' value='" . $que["ProjectID"] . "' readonly>";   ?>
+
                         </div>
                     </div>
 
                     <div class="parallel">
                         <div class="subpart">
                             Project Name:
-                            <input type="text">
+                            <?php echo             "<input type='text' value='" . $que["Project_name"] . "' readonly>";   ?>
+
                         </div>
                         <div class="subpart">
                             Project Manager:
-                            <input type="text">
+                            <?php echo             "<input type='text' value='" . $que["First_name"] . "' readonly>";   ?>
+
                         </div>
                     </div>
 
                     <div class="parallel">
                         <div class="subpart">
                             Start Date:
-                            <input type="text">
+                            <?php echo             "<input type='text' value='" . $que["Start_date"] . "' readonly>";   ?>
+
                         </div>
                         <div class="subpart">
                             End Date:
-                            <input type="text">
+                           <?php echo             "<input type='text' value='" . $que["End_date"] . "' readonly>";   ?>
+
                         </div>
                     </div>
 
                     <div class="parallel">
                         <div class="subpart">
                             Rating:
-                            <input type="text">
+                            <?php echo             "<input type='text' value='" . $que["Rating"] . "' readonly>";   ?>
+
                         </div>
                         <div class="subpart">
                             Priority:
-                            <input type="text">
+                            <?php echo             "<input type='text' value='" . $que["Priority"] . "' readonly>";   ?>
+
                         </div>
                     </div>
 

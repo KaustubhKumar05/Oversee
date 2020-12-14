@@ -18,6 +18,25 @@ if(!isset($_SESSION['login_user']))
     <link rel="stylesheet" href="U_complaints_style.css">
     <title>Complaints</title>
 </head>
+<?php
+    include "../php_script/dbconnect.php";
+    $que = mysqli_fetch_all(mysqli_query($conn,"SELECT * from emp_complaintsview where EmployeeID='".$_SESSION["empID"]."';"),MYSQLI_ASSOC);
+  
+    if(isset($_POST['cat'])){
+  
+    $cat=$_POST['cat']; 
+    $sub=$_POST['sub']; 
+    $body=$_POST['body']; 
+    echo $cat;
+    date_default_timezone_set("Asia/Kolkata");
+    $date=date("Y/m/d");
+    $time=date("H:i:s");
+
+    $r = "INSERT INTO complaints (Comp_status, Date_Time_Stamp, Subject, Body, Category, EmployeeID) 
+    VALUES ('Pending', '".$date." ".$time."', '".$sub."','".$body."','".$cat."','".$_SESSION['empID']."');";
+    $comp_insert=mysqli_query($conn,$r); 
+    }
+?>
 
 <body>
     <div class="container">
@@ -50,23 +69,25 @@ if(!isset($_SESSION['login_user']))
             </div>
             <div class="pageTitle">New complaint</div>
             <div class="new">
-                <label for="cat">Category:</label>
-                <select id="cat" required>
-                    <option value="">Select</option>
-                    <option value="Sanitation">Sanitation</option>
-                    <option value="Infrastructure">Infrastructure</option>
-                    <option value="Misconduct">Misconduct</option>
-                    <option value="Other">Other</option>
-                </select>
-                <br>
-                <label for="sub">Subject:</label>
-                <input type="text" id="sub" required>
-                <br>
-                <label for="body">Body:</label>
-                <br>
-                <textarea id="body" required></textarea>
-                <br>
-                <button type="submit" id="newBtn">Submit</button>
+                <form method="post">
+                    <label for="cat">Category:</label>
+                    <select id="cat" required>
+                        <option name="cat" value="">Select</option>
+                        <option name="cat" value="Sanitation">Sanitation</option>
+                        <option name="cat" value="Infrastructure">Infrastructure</option>
+                        <option name="cat" value="Misconduct">Misconduct</option>
+                        <option name="cat" value="Other">Other</option>
+                    </select>
+                    <br>
+                    <label for="sub">Subject:</label>
+                    <input type="text" id="sub" name="sub" value="" required>
+                    <br>
+                    <label for="body">Body:</label>
+                    <br>
+                    <textarea id="body" name="body" value="" required></textarea>
+                    <br>
+                    <button type="submit" id="newBtn">Submit</button>
+                </form>
             </div>
             <div class="existing">
                 <div class="pageTitle">Registered complaints</div>
@@ -80,14 +101,29 @@ if(!isset($_SESSION['login_user']))
                             <th>Time</th>
                             <th>Status</th>
                         </tr>
-                        <tr id="comp-1-">
-                            <td id="comp-1-Compid">001837</td>
-                            <td id="comp-1-Cat">Infrastructure</td>
-                            <td id="comp-1-Sub">Slow internet</td>
-                            <td id="comp-1-Date">10-10-2020</td>
-                            <td id="comp-1-Time">23:40</td>
-                            <td id="comp-1-Status">Pending</td>
-                        </tr>
+
+                        <?php
+                            $id = 1;
+
+                            foreach($que as $que=>$row){
+
+                                echo "<tr id=\"comp-".$id."\">
+                                <td id=\"comp-".$id."-Compid\">".$row["CompID"]."</td>
+                                <td id=\"comp-".$id."-Cat\">".$row["Category"]."</td>
+                                <td id=\"comp-".$id."-Sub\">".$row["Subject"]."</td>
+                                <td id=\"comp-".$id."-Date\">".$row["date"]."</td>
+                                <td id=\"comp-".$id."-Time\">".$row["time"]."</td>
+                                <td id=\"comp-".$id."-Status\">".$row["Comp_status"]."</td>
+                            </tr>";
+
+
+                                $id++;
+                            }
+
+                        ?>
+
+
+
                     </table>
                 </div>
             </div>

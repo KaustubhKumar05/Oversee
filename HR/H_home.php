@@ -1,3 +1,9 @@
+<?php 
+session_start();
+if(!isset($_SESSION['login_user']))
+    header('Location: /');
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,7 +41,7 @@
             <a href="H_leaves.html">Leaves</a>
         </div>
         <div class="option signout">
-            <a href="../index.html">Sign Out</a>
+        <a href="../php_script/signout.php"> Sign Out</a>
         </div>
     </div>
     <div class="main">
