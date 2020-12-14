@@ -23,7 +23,9 @@ if(!isset($_SESSION['login_user']))
     date_default_timezone_set("Asia/Kolkata");
     $date=date("Y/m/d");
     $time=date("h:i:sa");
-    
+    $upcoming= mysqli_fetch_assoc(mysqli_query($conn,"SELECT * from upcoming_view where EmployeeID='".$_SESSION["empID"]."';"));
+    $completed= mysqli_fetch_assoc(mysqli_query($conn,"SELECT * from completed_view where EmployeeID='".$_SESSION["empID"]."';"));
+    $ongoing= mysqli_fetch_assoc(mysqli_query($conn,"SELECT * from ongoing_view where EmployeeID='".$_SESSION["empID"]."';"));
 ?>
 
 <body>
@@ -71,21 +73,22 @@ if(!isset($_SESSION['login_user']))
                             <?php echo             "<input type='text' value='" . $_SESSION["empID"] . "' readonly>";   ?>
                         </div>
                         <div class="subpart">
-                            Status:
-                            <?php echo             "<input type='text' value='" . $que["ProjectID"] . "' readonly>";   ?>
+                            Priority:
+                            <?php echo             "<input type='text' value='" . $ongoing["Priority"] . "' readonly>";   ?>
 
                         </div>
+                        
                     </div>
 
                     <div class="parallel">
                         <div class="subpart">
                             Project Name:
-                            <?php echo             "<input type='text' value='" . $que["Project_name"] . "' readonly>";   ?>
+                            <?php echo             "<input type='text' value='" . $ongoing["Project_name"] . "' readonly>";   ?>
 
                         </div>
                         <div class="subpart">
                             Project Manager:
-                            <?php echo             "<input type='text' value='" . $que["First_name"] . "' readonly>";   ?>
+                            <?php echo             "<input type='text' value='" . $ongoing["First_name"] . "' readonly>";   ?>
 
                         </div>
                     </div>
@@ -93,358 +96,144 @@ if(!isset($_SESSION['login_user']))
                     <div class="parallel">
                         <div class="subpart">
                             Start Date:
-                            <?php echo             "<input type='text' value='" . $que["Start_date"] . "' readonly>";   ?>
+                            <?php echo             "<input type='text' value='" . $ongoing["Start_date"] . "' readonly>";   ?>
 
                         </div>
                         <div class="subpart">
                             End Date:
-                           <?php echo             "<input type='text' value='" . $que["End_date"] . "' readonly>";   ?>
+                           <?php echo             "<input type='text' value='" . $ongoing["End_date"] . "' readonly>";   ?>
 
                         </div>
                     </div>
 
-                    <div class="parallel">
+                    <!-- <div class="parallel">
                         <div class="subpart">
                             Rating:
-                            <?php echo             "<input type='text' value='" . $que["Rating"] . "' readonly>";   ?>
+                            <?php echo             "<input type='text' value='" . $ongoing["Rating"] . "' readonly>";   ?>
 
-                        </div>
-                        <div class="subpart">
-                            Priority:
-                            <?php echo             "<input type='text' value='" . $que["Priority"] . "' readonly>";   ?>
-
-                        </div>
-                    </div>
-
-                </div>
-                <div class="item">
-                    <div class="parallel">
-                        <div class="subpart">
-                            Project ID:
-                            <input type="text">
                         </div>
                         <div class="subpart">
                             Status:
-                            <input type="text">
-                        </div>
-                    </div>
+                            <?php echo             "<input type='text' value='" . $ongoing["ProjectID"] . "' readonly>";   ?>
 
-                    <div class="parallel">
-                        <div class="subpart">
-                            Project Name:
-                            <input type="text">
                         </div>
-                        <div class="subpart">
-                            Project Manager:
-                            <input type="text">
-                        </div>
-                    </div>
-
-                    <div class="parallel">
-                        <div class="subpart">
-                            Start Date:
-                            <input type="text">
-                        </div>
-                        <div class="subpart">
-                            End Date:
-                            <input type="text">
-                        </div>
-                    </div>
-
-                    <div class="parallel">
-                        <div class="subpart">
-                            Rating:
-                            <input type="text">
-                        </div>
-                        <div class="subpart">
-                            Priority:
-                            <input type="text">
-                        </div>
-                    </div>
+                    </div> -->
 
                 </div>
-
-
-
             </div>
             <div class="listview" id="upcomingView">
-                <div class="item">
+            <div class="item">
                     <div class="parallel">
                         <div class="subpart">
                             Project ID:
-                            <input type="text">
+                            <?php echo             "<input type='text' value='" . $_SESSION["empID"] . "' readonly>";   ?>
                         </div>
                         <div class="subpart">
-                            Status:
-                            <input type="text">
+                            Priority:
+                            <?php echo             "<input type='text' value='" . $upcoming["Priority"] . "' readonly>";   ?>
+
                         </div>
+                        
                     </div>
 
                     <div class="parallel">
                         <div class="subpart">
                             Project Name:
-                            <input type="text">
+                            <?php echo             "<input type='text' value='" . $upcoming["Project_name"] . "' readonly>";   ?>
+
                         </div>
                         <div class="subpart">
                             Project Manager:
-                            <input type="text">
+                            <?php echo             "<input type='text' value='" . $upcoming["First_name"] . "' readonly>";   ?>
+
                         </div>
                     </div>
 
                     <div class="parallel">
                         <div class="subpart">
                             Start Date:
-                            <input type="text">
+                            <?php echo             "<input type='text' value='" . $upcoming["Start_date"] . "' readonly>";   ?>
+
                         </div>
                         <div class="subpart">
                             End Date:
-                            <input type="text">
+                           <?php echo             "<input type='text' value='" . $upcoming["End_date"] . "' readonly>";   ?>
+
                         </div>
                     </div>
 
-                    <div class="parallel">
+                   <!--  <div class="parallel">
                         <div class="subpart">
                             Rating:
-                            <input type="text">
-                        </div>
-                        <div class="subpart">
-                            Priority:
-                            <input type="text">
-                        </div>
-                    </div>
+                            <?php echo             "<input type='text' value='" . $upcoming["Rating"] . "' readonly>";   ?>
 
-                </div>
-                <div class="item">
-                    <div class="parallel">
-                        <div class="subpart">
-                            Project ID:
-                            <input type="text">
                         </div>
                         <div class="subpart">
                             Status:
-                            <input type="text">
-                        </div>
-                    </div>
+                            <?php echo             "<input type='text' value='" . $upcoming["ProjectID"] . "' readonly>";   ?>
 
-                    <div class="parallel">
-                        <div class="subpart">
-                            Project Name:
-                            <input type="text">
                         </div>
-                        <div class="subpart">
-                            Project Manager:
-                            <input type="text">
-                        </div>
-                    </div>
-
-                    <div class="parallel">
-                        <div class="subpart">
-                            Start Date:
-                            <input type="text">
-                        </div>
-                        <div class="subpart">
-                            End Date:
-                            <input type="text">
-                        </div>
-                    </div>
-
-                    <div class="parallel">
-                        <div class="subpart">
-                            Rating:
-                            <input type="text">
-                        </div>
-                        <div class="subpart">
-                            Priority:
-                            <input type="text">
-                        </div>
-                    </div>
+                    </div> -->
 
                 </div>
-                <div class="item">
-                    <div class="parallel">
-                        <div class="subpart">
-                            Project ID:
-                            <input type="text">
-                        </div>
-                        <div class="subpart">
-                            Status:
-                            <input type="text">
-                        </div>
-                    </div>
-
-                    <div class="parallel">
-                        <div class="subpart">
-                            Project Name:
-                            <input type="text">
-                        </div>
-                        <div class="subpart">
-                            Project Manager:
-                            <input type="text">
-                        </div>
-                    </div>
-
-                    <div class="parallel">
-                        <div class="subpart">
-                            Start Date:
-                            <input type="text">
-                        </div>
-                        <div class="subpart">
-                            End Date:
-                            <input type="text">
-                        </div>
-                    </div>
-
-                    <div class="parallel">
-                        <div class="subpart">
-                            Rating:
-                            <input type="text">
-                        </div>
-                        <div class="subpart">
-                            Priority:
-                            <input type="text">
-                        </div>
-                    </div>
-
-                </div>
+               
+                
 
             </div>
             <div class="listview" id="completedView">
-                <div class="item">
+                
+            <div class="item">
                     <div class="parallel">
                         <div class="subpart">
                             Project ID:
-                            <input type="text">
+                            <?php echo             "<input type='text' value='" . $_SESSION["empID"] . "' readonly>";   ?>
                         </div>
                         <div class="subpart">
-                            Status:
-                            <input type="text">
+                            Priority:
+                            <?php echo             "<input type='text' value='" . $completed["Priority"] . "' readonly>";   ?>
+
                         </div>
+                        
                     </div>
 
                     <div class="parallel">
                         <div class="subpart">
                             Project Name:
-                            <input type="text">
+                            <?php echo             "<input type='text' value='" . $completed["Project_name"] . "' readonly>";   ?>
+
                         </div>
                         <div class="subpart">
                             Project Manager:
-                            <input type="text">
+                            <?php echo             "<input type='text' value='" . $completed["First_name"] . "' readonly>";   ?>
+
                         </div>
                     </div>
 
                     <div class="parallel">
                         <div class="subpart">
                             Start Date:
-                            <input type="text">
+                            <?php echo             "<input type='text' value='" . $completed["Start_date"] . "' readonly>";   ?>
+
                         </div>
                         <div class="subpart">
                             End Date:
-                            <input type="text">
+                           <?php echo             "<input type='text' value='" . $completed["End_date"] . "' readonly>";   ?>
+
                         </div>
                     </div>
 
-                    <div class="parallel">
+                    <!-- <div class="parallel">
                         <div class="subpart">
                             Rating:
-                            <input type="text">
-                        </div>
-                        <div class="subpart">
-                            Priority:
-                            <input type="text">
-                        </div>
-                    </div>
+                            <?php echo             "<input type='text' value='" . $completed["Rating"] . "' readonly>";   ?>
 
-                </div>
-                <div class="item">
-                    <div class="parallel">
-                        <div class="subpart">
-                            Project ID:
-                            <input type="text">
                         </div>
                         <div class="subpart">
                             Status:
-                            <input type="text">
-                        </div>
-                    </div>
+                            <?php echo             "<input type='text' value='" . $completed["ProjectID"] . "' readonly>";   ?>
 
-                    <div class="parallel">
-                        <div class="subpart">
-                            Project Name:
-                            <input type="text">
                         </div>
-                        <div class="subpart">
-                            Project Manager:
-                            <input type="text">
-                        </div>
-                    </div>
-
-                    <div class="parallel">
-                        <div class="subpart">
-                            Start Date:
-                            <input type="text">
-                        </div>
-                        <div class="subpart">
-                            End Date:
-                            <input type="text">
-                        </div>
-                    </div>
-
-                    <div class="parallel">
-                        <div class="subpart">
-                            Rating:
-                            <input type="text">
-                        </div>
-                        <div class="subpart">
-                            Priority:
-                            <input type="text">
-                        </div>
-                    </div>
-
-                </div>
-                <div class="item">
-                    <div class="parallel">
-                        <div class="subpart">
-                            Project ID:
-                            <input type="text">
-                        </div>
-                        <div class="subpart">
-                            Status:
-                            <input type="text">
-                        </div>
-                    </div>
-
-                    <div class="parallel">
-                        <div class="subpart">
-                            Project Name:
-                            <input type="text">
-                        </div>
-                        <div class="subpart">
-                            Project Manager:
-                            <input type="text">
-                        </div>
-                    </div>
-
-                    <div class="parallel">
-                        <div class="subpart">
-                            Start Date:
-                            <input type="text">
-                        </div>
-                        <div class="subpart">
-                            End Date:
-                            <input type="text">
-                        </div>
-                    </div>
-
-                    <div class="parallel">
-                        <div class="subpart">
-                            Rating:
-                            <input type="text">
-                        </div>
-                        <div class="subpart">
-                            Priority:
-                            <input type="text">
-                        </div>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
