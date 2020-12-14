@@ -21,29 +21,30 @@ if(!isset($_SESSION['login_user']))
 
 <body>
 <div class="container">
-    <div class="panel">
+<div class="panel">
         <div class="close">
             <i class="fas fa-angle-double-left fa-4x" id="closeBtn"></i>
         </div>
         <div class="option">
-            <a href="H_home.html">Employees</a>
+            <a href="H_home.php">Employees</a>
         </div>
         <div class="option">
-            <a href="H_projects.html">Projects</a>
+            <a href="H_projects.php">Projects</a>
         </div>
         <div class="option">
-            <a href="H_dept.html">Departments</a>
+            <a href="H_dept.php">Departments</a>
         </div>
         <div class="option">
-            <a href="H_complaints.html">Complaints</a>
+            <a href="H_complaints.php">Complaints</a>
         </div>
         <div class="option">
-            <a href="H_leaves.html">Leaves</a>
+            <a href="H_leaves.php">Leaves</a>
         </div>
         <div class="option signout">
         <a href="../php_script/signout.php"> Sign Out</a>
         </div>
     </div>
+
     <div class="main">
 
 
