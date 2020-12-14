@@ -18,7 +18,12 @@ if(!isset($_SESSION['login_user']))
     <link rel="stylesheet" href="H_home_style.css">
     <title>Employee Database</title>
 </head>
-
+<?php
+    include "../php_script/dbconnect.php";
+    
+    $que = mysqli_fetch_all(mysqli_query($conn,"SELECT * from hr_employee_view where emp='User';"),MYSQLI_ASSOC);
+    
+?>
 <body>
 <div class="container">
 <div class="panel">
@@ -73,24 +78,26 @@ if(!isset($_SESSION['login_user']))
                     <th>Department</th>
                     <th>Rating</th>
                 </tr>
-                <tr id="emp-1-">
-                    <td id="emp-1-Empid">001</td>
-                    <td id="emp-1-Name">Jill</td>
-                    <td id="emp-1-Phone">7876354289</td>
-                    <td id="emp-1-Email">E19CSE000@bennett.edu.in</td>
-                    <td id="emp-1-Desig">Student</td>
-                    <td id="emp-1-Dept">CSE</td>
-                    <td id="emp-1-Rating">5</td>
-                </tr>
-                <tr id="emp-2-">
-                    <td id="emp-2-Empid">002</td>
-                    <td id="emp-2-Name">Jack</td>
-                    <td id="emp-2-Phone">7875394289</td>
-                    <td id="emp-2-Email">E19CSE999@bennett.edu.in</td>
-                    <td id="emp-2-Desig">Student</td>
-                    <td id="emp-2-Dept">CSE</td>
-                    <td id="emp-2-Rating">2</td>
-                </tr>
+                <?php
+                            $id = 1;
+
+                            foreach($que as $que=>$row){
+
+                                echo "<tr emp=\"leave-".$id."\">
+                                <td id=\"emp-".$id."-Empid\">".$row["EmployeeID"]."</td>
+                                <td id=\"emp-".$id."-Name\">".$row["First_name"]." ".$row["Middle_name"]." ".$row["Last_name"]."</td>
+                                <td id=\"emp-".$id."-Phone\">".$row["Mobile_no"]."</td>
+                                <td id=\"emp-".$id."-Email\">".$row["email"]."</td>
+                                <td id=\"emp-".$id."-Desig\">".$row["Designation_name"]."</td>
+                                <td id=\"emp-".$id."-Dept\">".$row["Dept_name"]."</td>
+                                <td id=\"emp-".$id."-Rating\">".$row["RATING"]."</td>
+                            </tr>";
+
+
+                                $id++;
+                            }
+
+                        ?>
 
             </table>
         </div>

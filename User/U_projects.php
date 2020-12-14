@@ -19,7 +19,7 @@ if(!isset($_SESSION['login_user']))
 </head>
 <?php
     include "../php_script/dbconnect.php";
-    $que = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * from Projects where EmployeeID='".$_SESSION["empID"]."';"));
+    // $que = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * from Projects where EmployeeID='".$_SESSION["empID"]."';"));
     date_default_timezone_set("Asia/Kolkata");
     $date=date("Y/m/d");
     $time=date("h:i:sa");
@@ -70,7 +70,7 @@ if(!isset($_SESSION['login_user']))
                     <div class="parallel">
                         <div class="subpart">
                             Project ID:
-                            <?php echo             "<input type='text' value='" . $_SESSION["empID"] . "' readonly>";   ?>
+                            <?php echo             "<input type='text' value='" .  $ongoing["ProjectID"]   . "' readonly>";   ?>
                         </div>
                         <div class="subpart">
                             Priority:
@@ -126,7 +126,7 @@ if(!isset($_SESSION['login_user']))
                     <div class="parallel">
                         <div class="subpart">
                             Project ID:
-                            <?php echo             "<input type='text' value='" . $_SESSION["empID"] . "' readonly>";   ?>
+                            <?php echo             "<input type='text' value='" . $upcoming["ProjectID"] . "' readonly>";   ?>
                         </div>
                         <div class="subpart">
                             Priority:
@@ -186,7 +186,7 @@ if(!isset($_SESSION['login_user']))
                     <div class="parallel">
                         <div class="subpart">
                             Project ID:
-                            <?php echo             "<input type='text' value='" . $_SESSION["empID"] . "' readonly>";   ?>
+                            <?php echo             "<input type='text' value='" .  $completed["ProjectID"] . "' readonly>";   ?>
                         </div>
                         <div class="subpart">
                             Priority:

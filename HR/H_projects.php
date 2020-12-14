@@ -18,7 +18,16 @@ if(!isset($_SESSION['login_user']))
     <link rel="stylesheet" href="H_projects_style.css">
     <title>Project Database</title>
 </head>
-
+<?php
+    include "../php_script/dbconnect.php";
+    $que = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * from Projects where EmployeeID='".$_SESSION["empID"]."';"));
+    date_default_timezone_set("Asia/Kolkata");
+    $date=date("Y/m/d");
+    $time=date("h:i:sa");
+    $upcoming= mysqli_fetch_all(mysqli_query($conn,"SELECT * FROM upcoming_view left join  dept using (DeptID);"),MYSQLI_ASSOC);
+    $completed= mysqli_fetch_all(mysqli_query($conn,"SELECT * FROM completed_view left join  dept using (DeptID);"),MYSQLI_ASSOC);
+    $ongoing= mysqli_fetch_all(mysqli_query($conn,"SELECT * FROM ongoing_view left join  dept using (DeptID);"),MYSQLI_ASSOC);
+?>
 <body>
 <div class="container">
     <div class="panel">
@@ -73,22 +82,53 @@ if(!isset($_SESSION['login_user']))
                     <th>Priority Level</th>
                     <th>Status</th>
                 </tr>
-                <tr id="proj-1-">
-                    <td id="proj-1-Projid">001</td>
-                    <td id="proj-1-Name">Oversee</td>
-                    <td id="proj-1-ManID">E19CSE999</td>
-                    <td id="proj-1-Dept">D5</td>
-                    <td id="proj-1-Priority">High</td>
-                    <td id="proj-1-Status">In progress</td>
-                </tr>
-                <tr id="proj-2-">
-                    <td id="proj-2-Projid">002</td>
-                    <td id="proj-2-Name">SmartSurf</td>
-                    <td id="proj-2-ManID">E19CSE000</td>
-                    <td id="proj-2-Dept">D10</td>
-                    <td id="proj-2-Priority">High</td>
-                    <td id="proj-2-Status">Complete</td>
-                </tr>
+                <?php
+                            $id = 1;
+
+                            foreach($ongoing as $ongoing=>$row){
+
+                                echo "<tr proj=\"proj-".$id."\">
+                                <td id=\"proj-".$id."-Projid\">".$row['ProjectID']."</td>
+                                <td id=\"proj-".$id."-Name\">".$row["Project_name"]."</td>
+                                <td id=\"proj-".$id."-ManID\">".$row["Manager"]."</td>
+                                <td id=\"proj-".$id."-Dept\">".$row["Dept_name"]."</td>
+                                <td id=\"proj-".$id."-Priority\">".$row["Priority"]."</td>
+                                <td id=\"proj-".$id."-Status\">"."Ongoing"."</td>
+                            </tr>";
+
+
+                                $id++;
+                            }
+                            foreach($completed as $completed=>$row){
+
+                                echo "<tr proj=\"proj-".$id."\">
+                                <td id=\"proj-".$id."-Projid\">".$row["ProjectID"]."</td>
+                                <td id=\"proj-".$id."-Name\">".$row["Project_name"]."</td>
+                                <td id=\"proj-".$id."-ManID\">".$row["Manager"]."</td>
+                                <td id=\"proj-".$id."-Dept\">".$row["Dept_name"]."</td>
+                                <td id=\"proj-".$id."-Priority\">".$row["Priority"]."</td>
+                                <td id=\"proj-".$id."-Status\">"."Completed"."</td>
+                            </tr>";
+
+
+                                $id++;
+                            }
+                            foreach($upcoming as $upcoming=>$row){
+
+                                echo "<tr proj=\"proj-".$id."\">
+                                <td id=\"proj-".$id."-Projid\">".$row["ProjectID"]."</td>
+                                <td id=\"proj-".$id."-Name\">".$row["Project_name"]."</td>
+                                <td id=\"proj-".$id."-ManID\">".$row["Manager"]."</td>
+                                <td id=\"proj-".$id."-Dept\">".$row["Dept_name"]."</td>
+                                <td id=\"proj-".$id."-Priority\">".$row["Priority"]."</td>
+                                <td id=\"proj-".$id."-Status\">"."Upcoming"."</td>
+                            </tr>";
+
+
+                                $id++;
+                            }
+
+                        ?>
             </table>
         </div>
 
