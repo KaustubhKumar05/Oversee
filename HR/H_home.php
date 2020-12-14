@@ -83,7 +83,7 @@ if(!isset($_SESSION['login_user']))
 
                             foreach($que as $que=>$row){
 
-                                echo "<tr emp=\"emp-".$row["EmployeeID"]."\">
+                                echo "<tr id=\"emp-".$row["EmployeeID"]."\">
                                 <td id=\"emp-".$row["EmployeeID"]."-Empid\">".$row["EmployeeID"]."</td>
                                 <td id=\"emp-".$row["EmployeeID"]."-Name\">".$row["First_name"]." ".$row["Middle_name"]." ".$row["Last_name"]."</td>
                                 <td id=\"emp-".$row["EmployeeID"]."-Phone\">".$row["Mobile_no"]."</td>

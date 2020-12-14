@@ -18,7 +18,12 @@ if(!isset($_SESSION['login_user']))
     <link rel="stylesheet" href="H_complaints_style.css">
     <title>Received complaints</title>
 </head>
-
+<?php
+    include "../php_script/dbconnect.php";
+    
+    $que = mysqli_fetch_all(mysqli_query($conn,"SELECT * from emp_complaintsview;"),MYSQLI_ASSOC);
+    
+?>
 <body>
 <div class="container">
     <div class="panel">
@@ -66,22 +71,24 @@ if(!isset($_SESSION['login_user']))
                     <th>Time</th>
                     <th>Status</th>
                 </tr>
-                <tr id="comp-1-">
-                    <td id="comp-1-Compid">001837</td>
-                    <td id="comp-1-Cat">Infrastructure</td>
-                    <td id="comp-1-Sub">Slow internet</td>
-                    <td id="comp-1-Date">10-10-2020</td>
-                    <td id="comp-1-Time">23:40</td>
-                    <td id="comp-1-Status">Pending</td>
-                </tr>
-                <tr id="comp-2-">
-                    <td id="comp-2-Compid">001297</td>
-                    <td id="comp-2-Cat">Sanitation</td>
-                    <td id="comp-2-Sub">Dirty floor</td>
-                    <td id="comp-2-Date">08-10-2020</td>
-                    <td id="comp-2-Time">13:40</td>
-                    <td id="comp-1-Status">Pending</td>
-                </tr>
+                <?php
+                $id=1;
+                foreach($que as $que=> $row){
+                 
+                    echo "<tr id=\"comp-".$id."\">
+                    <td id=\"emp-".$id."-Compid\">".$row["CompID"]."</td>
+                    <td id=\"emp-".$id."-Cat\">".$row["Category"]."</td>
+                    <td id=\"emp-".$id."-Sub\">".$row["Subject"]."</td>
+                    <td id=\"emp-".$id."-Date\">".$row["date"]."</td>
+                    <td id=\"emp-".$id."-Time\">".$row["time"]."</td>
+                    <td id=\"emp-".$id."-Status\">".$row["Comp_status"]."</td>
+                    
+                </tr>";
+
+
+                    $id++;
+                }
+                ?>
             </table>
         </div>
 
