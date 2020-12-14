@@ -16,7 +16,7 @@ if(!isset($_SESSION['login_user']))
           integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="H_complaints_style.css">
-    <title>Received complaints</title>
+    <title>Complaints</title>
 </head>
 <?php
     include "../php_script/dbconnect.php";

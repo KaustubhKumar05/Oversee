@@ -19,7 +19,12 @@ if(!isset($_SESSION['login_user']))
     <link rel="stylesheet" href="H_leaves_style.css">
     <title>Leave applications</title>
 </head>
-
+<?php
+    include "../php_script/dbconnect.php";
+    
+    $que = mysqli_fetch_all(mysqli_query($conn,"SELECT *, DATEDIFF(Leave_end,Leave_from) as duration from leaves;"),MYSQLI_ASSOC);
+    
+?>
 <body>
 <div class="container">
 <div class="panel">
@@ -68,22 +73,22 @@ if(!isset($_SESSION['login_user']))
                     <th>Duration</th>
                     <th>Status</th>
                     </tr>
-                <tr id="lea-1-">
-                    <td id="lea-1-Leaveid">001837</td>
-                    <td id="lea-1-Cat">Paid</td>
-                    <td id="lea-1-From">09-10-2020</td>
-                    <td id="lea-1-To">10-10-2020</td>
-                    <td id="lea-1-Dura">2 days</td>
-                    <td id="lea-1-Stat">Pending</td>
-                </tr>
-                <tr id="lea-2-">
-                    <td id="lea-2-Leaveid">001837</td>
-                    <td id="lea-2-Cat">Paid</td>
-                    <td id="lea-2-From">09-10-2020</td>
-                    <td id="lea-2-To">10-10-2020</td>
-                    <td id="lea-2-Dura">2 days</td>
-                    <td id="lea-2-Stat">Pending</td>
-                </tr>
+                    <?php
+                            $id = 1;
+                            foreach($que as $que=>$row){
+                                echo "<tr id=\"lea-".$id."\">
+                                <td id=\"lea-".$id."-Leaveid\">".$row["LeaveID"]."</td>
+                                <td id=\"lea-".$id."-Cat\">".$row["Leave_type"]."</td>
+                                <td id=\"lea-".$id."-From\">".$row["Leave_from"]."</td>
+                                <td id=\"lea-".$id."-To\">".$row["Leave_end"]."</td>
+                                <td id=\"lea-".$id."-Dura\">".$row["duration"]."</td>
+                                <td id=\"lea-".$id."-Stat\">".$row["Status"]."</td>
+                            </tr>";
+                                $id++;
+                            }
+
+                        ?>
+                
             </table>
         </div>
 
