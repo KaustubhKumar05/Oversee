@@ -309,6 +309,46 @@ INSERT INTO `employee_mobile_no` VALUES ('4','0123456789'),('3','1234567980'),('
 UNLOCK TABLES;
 
 --
+-- Temporary view structure for view `hr_employee__details_view`
+--
+
+DROP TABLE IF EXISTS `hr_employee__details_view`;
+/*!50001 DROP VIEW IF EXISTS `hr_employee__details_view`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `hr_employee__details_view` AS SELECT 
+ 1 AS `EmployeeID`,
+ 1 AS `DeptID`,
+ 1 AS `DesignationID`,
+ 1 AS `First_name`,
+ 1 AS `Middle_name`,
+ 1 AS `Last_name`,
+ 1 AS `email`,
+ 1 AS `DOB`,
+ 1 AS `Address_House_no`,
+ 1 AS `Address_Street_name`,
+ 1 AS `Address_Landmark`,
+ 1 AS `Address_State`,
+ 1 AS `Address_City`,
+ 1 AS `Aadhar_no`,
+ 1 AS `emp`,
+ 1 AS `Mobile_no`,
+ 1 AS `Designation_name`,
+ 1 AS `Factor`,
+ 1 AS `Annual_paid_leave`,
+ 1 AS `Base_salary`,
+ 1 AS `Dept_name`,
+ 1 AS `RATING`,
+ 1 AS `Account_no`,
+ 1 AS `Acc_Holder_Name`,
+ 1 AS `IFSC`,
+ 1 AS `Branch`,
+ 1 AS `Bank_Name`,
+ 1 AS `LoginID`,
+ 1 AS `Password`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Temporary view structure for view `hr_employee_view`
 --
 
@@ -668,6 +708,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `hr_employee__details_view`
+--
+
+/*!50001 DROP VIEW IF EXISTS `hr_employee__details_view`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `hr_employee__details_view` AS select `hr_employee_view`.`EmployeeID` AS `EmployeeID`,`hr_employee_view`.`DeptID` AS `DeptID`,`hr_employee_view`.`DesignationID` AS `DesignationID`,`hr_employee_view`.`First_name` AS `First_name`,`hr_employee_view`.`Middle_name` AS `Middle_name`,`hr_employee_view`.`Last_name` AS `Last_name`,`hr_employee_view`.`email` AS `email`,`hr_employee_view`.`DOB` AS `DOB`,`hr_employee_view`.`Address_House_no` AS `Address_House_no`,`hr_employee_view`.`Address_Street_name` AS `Address_Street_name`,`hr_employee_view`.`Address_Landmark` AS `Address_Landmark`,`hr_employee_view`.`Address_State` AS `Address_State`,`hr_employee_view`.`Address_City` AS `Address_City`,`hr_employee_view`.`Aadhar_no` AS `Aadhar_no`,`hr_employee_view`.`emp` AS `emp`,`hr_employee_view`.`Mobile_no` AS `Mobile_no`,`hr_employee_view`.`Designation_name` AS `Designation_name`,`hr_employee_view`.`Factor` AS `Factor`,`hr_employee_view`.`Annual_paid_leave` AS `Annual_paid_leave`,`hr_employee_view`.`Base_salary` AS `Base_salary`,`hr_employee_view`.`Dept_name` AS `Dept_name`,`hr_employee_view`.`RATING` AS `RATING`,`bank_account`.`Account_no` AS `Account_no`,`bank_account`.`Acc_Holder_Name` AS `Acc_Holder_Name`,`bank_account`.`IFSC` AS `IFSC`,`bank_account`.`Branch` AS `Branch`,`bank_account`.`Bank_Name` AS `Bank_Name`,`credentials`.`LoginID` AS `LoginID`,`credentials`.`Password` AS `Password` from ((`hr_employee_view` left join `bank_account` on((`hr_employee_view`.`EmployeeID` = `bank_account`.`EmployeeID`))) left join `credentials` on((`hr_employee_view`.`EmployeeID` = `credentials`.`EmployeeID`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `hr_employee_view`
 --
 
@@ -766,4 +824,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-15  2:24:23
+-- Dump completed on 2020-12-15  3:20:51
