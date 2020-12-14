@@ -12,38 +12,38 @@ document.addEventListener('click', (e)=>{
         panel.classList.add('view');
 })
 
-newBtn.addEventListener("click", () =>{
+// newBtn.addEventListener("click", () =>{
 
-    const newRow = table.insertRow(1);
-    newRow.id = `leave-${count}-`;
+//     const newRow = table.insertRow(1);
+//     newRow.id = `leave-${count}-`;
 
-    const id = newRow.insertCell(0),
-        category = newRow.insertCell(1),
-        subject = newRow.insertCell(2),
-        date = newRow.insertCell(3),
-        time = newRow.insertCell(4),
-        status = newRow.insertCell(5);
+//     const id = newRow.insertCell(0),
+//         category = newRow.insertCell(1),
+//         subject = newRow.insertCell(2),
+//         date = newRow.insertCell(3),
+//         time = newRow.insertCell(4),
+//         status = newRow.insertCell(5);
 
-    id.innerText = (count).toString();
-    newRow.id = `comp-${count}-Compid`;
+//     id.innerText = (count).toString();
+//     newRow.id = `comp-${count}-Compid`;
 
-    category.innerText = cat.value;
-    category.id = `comp-${count}-Cat`;
+//     category.innerText = cat.value;
+//     category.id = `comp-${count}-Cat`;
 
-    subject.innerText = sub.value.toString();
-    subject.id= `comp-${count}-Sub`;
+//     subject.innerText = sub.value.toString();
+//     subject.id= `comp-${count}-Sub`;
 
-    let d = new Date();
-    date.innerText = d.getDate().toString() +'-'+ (d.getMonth() + 1).toString() +'-'+ d.getFullYear().toString();
-    cat.id = `comp-${count}-Date`;
+//     let d = new Date();
+//     date.innerText = d.getDate().toString() +'-'+ (d.getMonth() + 1).toString() +'-'+ d.getFullYear().toString();
+//     cat.id = `comp-${count}-Date`;
 
-    time.innerText = d.getHours().toString() +':'+ d.getMinutes().toString();
-    cat.id = `comp-${count}-Time`;
+//     time.innerText = d.getHours().toString() +':'+ d.getMinutes().toString();
+//     cat.id = `comp-${count}-Time`;
 
-    status.innerText = "Pending";
-    status.id = `comp-${count}-Status`;
+//     status.innerText = "Pending";
+//     status.id = `comp-${count}-Status`;
 
-    count++;
+//     count++;
 
-    console.log(newRow);
-})
+//     console.log(newRow);
+// })

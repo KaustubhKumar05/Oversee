@@ -18,6 +18,26 @@ if(!isset($_SESSION['login_user']))
     <link rel="stylesheet" href="U_leaves_style.css">
     <title>Leaves</title>
 </head>
+<?php
+    include "../php_script/dbconnect.php";
+    $que = mysqli_fetch_all(mysqli_query($conn,"SELECT * from leaves where EmployeeID='".$_SESSION["empID"]."';"),MYSQLI_ASSOC);
+    if(isset($_POST['submit'])){
+    
+        $cat=$_POST['cat']; 
+        $from=$_POST['from']; 
+        $to=$_POST['to']; 
+        date_default_timezone_set("Asia/Kolkata");
+        $date=date("Y/m/d");
+        $time=date("H:i:s");
+    
+        $r = "INSERT INTO leaves ( Leave_from, Leave_end, Leave_type, Status, EmployeeID) 
+        VALUES ('".$from."','".$to."', '".$cat."','Pending','".$_SESSION['empID']."');";
+        mysqli_query($conn,$r); 
+        unset($_POST['submit']);
+        
+        
+    }
+?>
 
 <body>
     <div class="container">
@@ -51,29 +71,31 @@ if(!isset($_SESSION['login_user']))
             </div>
             <div class="pageTitle">Apply for leave</div>
             <div class="new">
-                <label for="cat">Category:</label>
-                <select id="cat" required>
-                    <option value="">Select</option>
-                    <option value="Paid">Paid</option>
-                    <option value="Unpaid">Unpaid</option>
-                    <option value="Maternity">Maternity</option>
-                    <option value="Paternity">Paternity</option>
-                    <option value="Compensatory">Compensatory</option>
-                </select>
-                <br><br>
-                <label for="reason">Reason:</label>
-                <input type="text" id="reason" required>
-                <br><br>
-                <div class="duration">
-                    <label for="from">From:</label>
-                    <input type="date" id="from">
-                    &nbsp; &nbsp; &nbsp;
-                    <label for="to">To:</label>
-                    <input type="date" id="to">
-                </div>
+                <form method="post">
+                    <label for="cat">Category:</label>
+                    <select name="cat" id="cat" required>
+                        <option value="">Select</option>
+                        <option value="Paid">Paid</option>
+                        <option value="Unpaid">Unpaid</option>
+                        <option value="Maternity">Maternity</option>
+                        <option value="Paternity">Paternity</option>
+                        <option value="Compensatory">Compensatory</option>
+                    </select>
+                    <br><br>
+                    <label for="reason">Reason:</label>
+                    <input type="text" id="reason" name="reason" required>
+                    <br><br>
+                    <div class="duration">
+                        <label for="from">From:</label>
+                        <input name="from" type="date" id="from">
+                        &nbsp; &nbsp; &nbsp;
+                        <label for="to">To:</label>
+                        <input name="to" type="date" id="to">
+                    </div>
 
-                <br>
-                <button type="submit" id="newBtn">Submit</button>
+                    <br>
+                    <button type="submit" id="newBtn" name="submit">Submit</button>
+                </form>
             </div>
             <div class="existing">
                 <div class="pageTitle">Applied leaves</div>
@@ -87,14 +109,25 @@ if(!isset($_SESSION['login_user']))
                             <th>Duration</th>
                             <th>Status</th>
                         </tr>
-                        <tr id="leave-1-">
-                            <td id="leave-1-Leaveid">001837</td>
-                            <td id="leave-1-Cat">Paid</td>
-                            <td id="leave-1-From">05-10-2020</td>
-                            <td id="leave-1-To">10-10-2020</td>
-                            <td id="leave-1-Duration">2</td>
-                            <td id="leave-1-Status">Pending</td>
-                        </tr>
+                        <?php
+                            $id = 1;
+
+                            foreach($que as $que=>$row){
+
+                                echo "<tr id=\"leave-".$id."\">
+                                <td id=\"leave-".$id."-Leaveid\">".$row["LeaveID"]."</td>
+                                <td id=\"leave-".$id."-Cat\">".$row["Leave_type"]."</td>
+                                <td id=\"leave-".$id."-From\">".$row["Leave_from"]."</td>
+                                <td id=\"leave-".$id."-To\">".$row["Leave_end"]."</td>
+                                <td id=\"leave-".$id."-Duration\">".$row["Leave_end"]."</td>
+                                <td id=\"leave-".$id."-Status\">".$row["Status"]."</td>
+                            </tr>";
+
+
+                                $id++;
+                            }
+
+                        ?>
                     </table>
                 </div>
             </div>

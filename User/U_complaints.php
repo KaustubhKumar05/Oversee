@@ -21,8 +21,7 @@ if(!isset($_SESSION['login_user']))
 <?php
     include "../php_script/dbconnect.php";
     $que = mysqli_fetch_all(mysqli_query($conn,"SELECT * from emp_complaintsview where EmployeeID='".$_SESSION["empID"]."';"),MYSQLI_ASSOC);
-  
-    if(isset($_POST['cat'])){
+    if(isset($_POST['submit'])){
     
         $cat=$_POST['cat']; 
         $sub=$_POST['sub']; 
@@ -31,10 +30,13 @@ if(!isset($_SESSION['login_user']))
         date_default_timezone_set("Asia/Kolkata");
         $date=date("Y/m/d");
         $time=date("H:i:s");
-
+    
         $r = "INSERT INTO complaints (Comp_status, Date_Time_Stamp, Subject, Body, Category, EmployeeID) 
         VALUES ('Pending', '".$date." ".$time."', '".$sub."','".$body."','".$cat."','".$_SESSION['empID']."');";
-        $comp_insert=mysqli_query($conn,$r); 
+        mysqli_query($conn,$r); 
+        unset($_POST['submit']);
+        
+        
     }
 ?>
 
@@ -71,12 +73,12 @@ if(!isset($_SESSION['login_user']))
             <div class="new">
                 <form method="post">
                     <label for="cat">Category:</label>
-                    <select id="cat" required>
-                        <option name="cat" value="">Select</option>
-                        <option name="cat" value="Sanitation">Sanitation</option>
-                        <option name="cat" value="Infrastructure">Infrastructure</option>
-                        <option name="cat" value="Misconduct">Misconduct</option>
-                        <option name="cat" value="Other">Other</option>
+                    <select id="cat" name="cat" required>
+                        <option name="ca" value="">Select</option>
+                        <option name="ca" value="Sanitation">Sanitation</option>
+                        <option name="ca" value="Infrastructure">Infrastructure</option>
+                        <option name="ca" value="Misconduct">Misconduct</option>
+                        <option name="ca" value="Other">Other</option>
                     </select>
                     <br>
                     <label for="sub">Subject:</label>
@@ -86,7 +88,7 @@ if(!isset($_SESSION['login_user']))
                     <br>
                     <textarea id="body" name="body" value="" required></textarea>
                     <br>
-                    <button type="submit" id="newBtn">Submit</button>
+                    <button type="submit" id="newBtn" name = "submit">Submit</button>
                 </form>
             </div>
             <div class="existing">
