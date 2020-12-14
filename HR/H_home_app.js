@@ -14,6 +14,26 @@ document.addEventListener('click', (e) => {
         varBtn.innerHTML = "Update";
         modal.classList.add("modal-view");
         remove.style.display = "inline";
+        var empID =  e.target.id.split("-")[1];
+        
+        console.log(empID);
+
+        $.ajax({
+            url: "getEmployee.php",
+            type: "post",
+            data: {emp=empID} ,
+            success: function (response) {
+                
+                var obj = JSON.parse(response);
+                varBtn.innerHTML = obj['name'];
+
+
+    
+               // You will get response from your PHP page (what you echo or print)
+            },
+        });
+
+
     }
 })
 

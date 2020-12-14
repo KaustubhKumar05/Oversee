@@ -18,7 +18,12 @@ if(!isset($_SESSION['login_user']))
     <link rel="stylesheet" href="H_dept_style.css">
     <title>Department Database</title>
 </head>
-
+<?php
+    include "../php_script/dbconnect.php";
+    
+    $que = mysqli_fetch_all(mysqli_query($conn,"SELECT * from dept left join designation using (DeptID);"),MYSQLI_ASSOC);
+    
+?>
 <body>
 <div class="container">
     <div class="panel">
@@ -71,18 +76,19 @@ if(!isset($_SESSION['login_user']))
                     <th>HOD ID</th>
                     <th>Employee count</th>
                 </tr>
-                <tr id="dept-1-">
-                    <td id="dept-1-Deptid">001</td>
-                    <td id="dept-1-Name">IT</td>
-                    <td id="dept-1-HODID">E19CSE999</td>
-                    <td id="dept-1-Empcount">25</td>
-                </tr>
-                <tr id="dept-2-">
-                    <td id="dept-2-Deptid">001</td>
-                    <td id="dept-2-Name">IT</td>
-                    <td id="dept-2-HODID">E19CSE999</td>
-                    <td id="dept-2-Empcount">25</td>
-                </tr>
+                <?php
+                $id=1;
+                foreach($que as $que=>$row){
+                
+                echo "<tr id=\"dept-".$id."\">
+                                <td id=\"dept-".$id."-Empid\">".$row["DeptID"]."</td>
+                                <td id=\"dept-".$id."-Name\">".$row["Dept_name"]."</td>
+                                <td id=\"dept-".$id."-HODID\">".$row["HODID"]."</td>
+                                <td id=\"dept-".$id."-Empcount\">".$row["Designation_name"]."</td>
+                            </tr>";
+                $id++;
+                }
+                ?>
             </table>
         </div>
 

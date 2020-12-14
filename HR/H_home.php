@@ -83,14 +83,14 @@ if(!isset($_SESSION['login_user']))
 
                             foreach($que as $que=>$row){
 
-                                echo "<tr emp=\"leave-".$id."\">
-                                <td id=\"emp-".$id."-Empid\">".$row["EmployeeID"]."</td>
-                                <td id=\"emp-".$id."-Name\">".$row["First_name"]." ".$row["Middle_name"]." ".$row["Last_name"]."</td>
-                                <td id=\"emp-".$id."-Phone\">".$row["Mobile_no"]."</td>
-                                <td id=\"emp-".$id."-Email\">".$row["email"]."</td>
-                                <td id=\"emp-".$id."-Desig\">".$row["Designation_name"]."</td>
-                                <td id=\"emp-".$id."-Dept\">".$row["Dept_name"]."</td>
-                                <td id=\"emp-".$id."-Rating\">".$row["RATING"]."</td>
+                                echo "<tr emp=\"emp-".$row["EmployeeID"]."\">
+                                <td id=\"emp-".$row["EmployeeID"]."-Empid\">".$row["EmployeeID"]."</td>
+                                <td id=\"emp-".$row["EmployeeID"]."-Name\">".$row["First_name"]." ".$row["Middle_name"]." ".$row["Last_name"]."</td>
+                                <td id=\"emp-".$row["EmployeeID"]."-Phone\">".$row["Mobile_no"]."</td>
+                                <td id=\"emp-".$row["EmployeeID"]."-Email\">".$row["email"]."</td>
+                                <td id=\"emp-".$row["EmployeeID"]."-Desig\">".$row["Designation_name"]."</td>
+                                <td id=\"emp-".$row["EmployeeID"]."-Dept\">".$row["Dept_name"]."</td>
+                                <td id=\"emp-".$row["EmployeeID"]."-Rating\">".$row["RATING"]."</td>
                             </tr>";
 
 
