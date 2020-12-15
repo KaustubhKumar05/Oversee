@@ -1,3 +1,6 @@
+
+create database hr;
+use hr;
 -- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
 --
 -- Host: localhost    Database: hr
@@ -623,7 +626,7 @@ CREATE TABLE `salary` (
   `EmployeeID` varchar(20) NOT NULL,
   `Performance_Based` double NOT NULL,
   PRIMARY KEY (`EmployeeID`),
-  CONSTRAINT `salary_ibfk_1` FOREIGN KEY (`EmployeeID`) REFERENCES `employee` (`EmployeeID`)
+  CONSTRAINT `salary_ibfk_1` FOREIGN KEY (`EmployeeID`) REFERENCES `employee` (`EmployeeID`) on delete cascade
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

@@ -74,17 +74,15 @@ if(!isset($_SESSION['login_user']))
                     <th>Status</th>
                     </tr>
                     <?php
-                            $id = 1;
                             foreach($que as $que=>$row){
-                                echo "<tr id=\"lea-".$id."\">
-                                <td id=\"lea-".$id."-Leaveid\">".$row["LeaveID"]."</td>
-                                <td id=\"lea-".$id."-Cat\">".$row["Leave_type"]."</td>
-                                <td id=\"lea-".$id."-From\">".$row["Leave_from"]."</td>
-                                <td id=\"lea-".$id."-To\">".$row["Leave_end"]."</td>
-                                <td id=\"lea-".$id."-Dura\">".$row["duration"]."</td>
-                                <td id=\"lea-".$id."-Stat\">".$row["Status"]."</td>
+                                echo "<tr id=\"lea-".$row["LeaveID"]."\">
+                                <td id=\"lea-".$row["LeaveID"]."-Leaveid\">".$row["LeaveID"]."</td>
+                                <td id=\"lea-".$row["LeaveID"]."-Cat\">".$row["Leave_type"]."</td>
+                                <td id=\"lea-".$row["LeaveID"]."-From\">".$row["Leave_from"]."</td>
+                                <td id=\"lea-".$row["LeaveID"]."-To\">".$row["Leave_end"]."</td>
+                                <td id=\"lea-".$row["LeaveID"]."-Dura\">".$row["duration"]."</td>
+                                <td id=\"lea-".$row["LeaveID"]."-Stat\">".$row["Status"]."</td>
                             </tr>";
-                                $id++;
                             }
 
                         ?>
@@ -128,8 +126,8 @@ if(!isset($_SESSION['login_user']))
 
                 <div class="modal-btn">
                     <button id="closeModal">Close</button>
-                    <button>Accept</button>
-                    <button>Decline</button>
+                    <button id = "accept_leave">Accept</button>
+                    <button id = "decline_leave">Decline</button>
                 </div>
 
             </div>
