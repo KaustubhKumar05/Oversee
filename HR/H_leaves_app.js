@@ -19,17 +19,15 @@ document.addEventListener('click', (e) => {
             type: "post",
             data: {'leave':leave} ,
             success: function (response) {
-                
+            
                 var obj = JSON.parse(response);
                 
-                document.getElementById("leaveid")
-                document.getElementById("category")
-                document.getElementById("from")
-                document.getElementById("to")
-                document.getElementById("dura")
-                document.getElementById("status")
-
-
+                document.getElementById("leaveid").value = obj['leaveID'];
+                document.getElementById("category").value = obj['Category'];
+                document.getElementById("from").value = obj['From'];
+                document.getElementById("to").value= obj['To'];
+                document.getElementById("dura").value = obj['Duration'];
+                document.getElementById("status").value= obj['Status'];
 
                 window.location.replace("H_leaves.php");
             }
