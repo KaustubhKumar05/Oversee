@@ -107,9 +107,9 @@ if(!isset($_SESSION['login_user']))
             <div class="modal">
                 <div class="modal-main">
                     <p>Employee details</p>
-                    <hr>
+                    <hr><div class="scroll-area">
                     <form method="post">
-                        <div class="scroll-area">
+                        
                             <div class="empid modal-details">
                                 <p>Employee ID:</p>
                                 <input type="text" name="empid" id="empid">
