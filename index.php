@@ -50,9 +50,9 @@
         if($count == 1) {
          
            
-           
-           
-            if ($answer == "HR")
+          //demotry 
+            
+             if ($answer == "HR")
                  header("location: HR\H_home.php");
            else 
                 header("location: User\U_home.php"); 
